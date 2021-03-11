@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding= "utf-8"?>
+<com.example.customviewbase.customview.custom.VerticalOffsetLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width= "match_parent"
+    android:layout_height= "wrap_content" >
+    
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:textAllCaps="false"
+        android:text="test" />
+
+    <com.example.customviewbase.customview.custom.CustomView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="#ff00ff00" />
+
+</com.example.customviewbase.customview.custom.VerticalOffsetLayout>

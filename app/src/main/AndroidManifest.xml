@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.customviewbase">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name=".customview.CustomViewActivity" />
+        <activity android:name=".customview.CustomActivity" />
+        <activity android:name=".customview.DrawActivity" />
+        <activity android:name=".customview.TestActivity" />
+        <activity android:name=".canvas.CanvasActivity" />
+
+        <activity android:name=".canvas.drawcolor.ColorActivity" />
+        <activity android:name=".canvas.drawpoint.PointActivity" />
+        <activity android:name=".canvas.drawline.LineActivity" />
+        <activity android:name=".canvas.drawrect.RectActivity" />
+        <activity android:name=".canvas.drawroundrect.RoundRectActivity" />
+        <activity android:name=".canvas.drawoval.OvalActivity" />
+        <activity android:name=".canvas.drawcircle.CircleActivity" />
+        <activity android:name=".canvas.drawarc.ArcActivity" />
+        <activity android:name=".canvas.paint.PaintActivity" />
+        <activity android:name=".canvas.translate.TranslateActivity" />
+        <activity android:name=".canvas.scale.ScaleActivity" />
+        <activity android:name=".canvas.drawText.DrawTextActivity" />
+        <activity android:name=".specmode.SpecModeActivity" />
+        <activity android:name=".customview.viewgrouptest.base.BaseActivity" />
+        <activity android:name=".customview.viewgrouptest.test.TestActivity" />
+        <activity android:name=".customview.viewgrouptest.viewgroup.ViewGroupActivity" />
+        <activity android:name=".customview.viewgrouptest.TestViewGroupActivity" />
+        <activity android:name=".customway.CustomWayActivity" />
+        <activity android:name=".customway.ExtendActivity" />
+        <activity android:name=".customway.GroupActivity" />
+        <activity android:name=".customway.ViewActivity" />
+        
+    </application>
+
+</manifest>
