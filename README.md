@@ -1,16 +1,20 @@
-# 自定义控件相关基础
+# 自定义控件相关基础  
 
-#canvas
+# canvas  
 画布相关操作  
 
-#customview 
+# customview   
 自定义View，ViewGroup的基本方式，测试代码
 
-#customway
+# customway  
 自定义View的三种方式  
 
-#specmode
+# specmode  
 测试SpecMode的代码  
+
+# dispatchevent
+事件分发测试
+
 
 
 

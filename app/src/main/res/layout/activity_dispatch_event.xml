@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.customviewbase.dispatchevent.MyViewGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    android:tag="viewgroup1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.example.customviewbase.dispatchevent.MyView
+        android:tag="view1"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:background="#ffff0000"
+        android:text="view1" />
+
+    <com.example.customviewbase.dispatchevent.MyViewGroup
+        android:id="@+id/mvg_v2"
+        android:tag="viewgroup2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingBottom="50dp"
+        android:background="#ff00ff00"
+        android:clickable="true"
+        android:orientation="vertical">
+        <com.example.customviewbase.dispatchevent.MyView
+            android:id="@+id/mv_v2"
+            android:tag="view2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:clickable="true"
+            android:background="#ffff0000"
+            android:text="view2" />
+        <com.example.customviewbase.dispatchevent.MyView
+            android:tag="view3"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:background="#ffff0000"
+            android:text="view3" />
+        <com.example.customviewbase.dispatchevent.MyView
+            android:tag="view4"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:background="#ffff0000"
+            android:text="view4" />
+    </com.example.customviewbase.dispatchevent.MyViewGroup>
+
+    <com.example.customviewbase.dispatchevent.MyView
+        android:tag="view5"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:background="#ffff0000"
+        android:text="view5" />
+
+</com.example.customviewbase.dispatchevent.MyViewGroup>

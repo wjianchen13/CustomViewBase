@@ -44,6 +44,8 @@
         <activity android:name=".customway.ExtendActivity" />
         <activity android:name=".customway.GroupActivity" />
         <activity android:name=".customway.ViewActivity" />
+
+        <activity android:name=".dispatchevent.DispatchEventActivity" />
         
     </application>
 
