@@ -7,6 +7,8 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.customviewbase.R;
+import com.example.customviewbase.customview.custom.CustomActivity;
+import com.example.customviewbase.customview.customlayoutparams.CustomLayoutParamsActivity;
 import com.example.customviewbase.customview.viewgrouptest.TestViewGroupActivity;
 
 public class CustomViewActivity extends AppCompatActivity {
@@ -31,5 +33,9 @@ public class CustomViewActivity extends AppCompatActivity {
 
     public void onViewGroupTest(View v) {
         startActivity(new Intent(this, TestViewGroupActivity.class));
+    }
+
+    public void onCustomParams(View v) {
+        startActivity(new Intent(this, CustomLayoutParamsActivity.class));
     }
 }

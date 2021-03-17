@@ -1,4 +1,4 @@
-package com.example.customviewbase.customview;
+package com.example.customviewbase.customview.custom;
 
 import android.content.Intent;
 import android.os.Bundle;

@@ -156,7 +156,7 @@ public class BaseViewGroup extends ViewGroup {
 						- cParams.rightMargin;
 				ct = getHeight() - cHeight - cParams.bottomMargin;
 				break;
-			}
+			} 
 			cr = cl + cWidth;
 			cb = cHeight + ct;
 			childView.layout(cl, ct, cr, cb);

@@ -14,7 +14,7 @@
             android:layout_height="wrap_content"
             android:textColor="#000000"
             android:textAllCaps="false"
-            android:text="custom"
+            android:text="自定义ViewGroup"
             android:onClick="onCustom"/>
 
         <Button
@@ -40,6 +40,14 @@
             android:textAllCaps="false"
             android:text="ViewGroup"
             android:onClick="onViewGroupTest"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textAllCaps="false"
+            android:text="自定义布局参数 LayoutParams"
+            android:onClick="onCustomParams"/>
 
     </LinearLayout>
 

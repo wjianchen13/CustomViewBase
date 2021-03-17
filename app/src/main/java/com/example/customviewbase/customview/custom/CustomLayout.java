@@ -8,8 +8,11 @@ import android.view.ViewGroup;
 
 /**
  * 自定义布局管理器的示例。
+ * https://blog.csdn.net/ldld1717/article/details/80458917?spm=1001.2014.3001.5501
+ * 简单实现水平排列效果
  */
 public class CustomLayout extends ViewGroup {
+    
     private static final String TAG = "CustomLayout";
 
     public CustomLayout(Context context) {
@@ -37,7 +40,7 @@ public class CustomLayout extends ViewGroup {
         measureChildren(widthMeasureSpec, heightMeasureSpec);
         //测量并保存layout的宽高(使用getDefaultSize时，wrap_content和match_perent都是填充屏幕)
         //稍后会重新写这个方法，能达到wrap_content的效果
-        setMeasuredDimension( getDefaultSize(getSuggestedMinimumWidth(), widthMeasureSpec),
+        setMeasuredDimension(getDefaultSize(getSuggestedMinimumWidth(), widthMeasureSpec),
                 getDefaultSize(getSuggestedMinimumHeight(), heightMeasureSpec));
     }
     @Override
@@ -48,31 +51,31 @@ public class CustomLayout extends ViewGroup {
         int layoutWidth = 0;    // 容器已经占据的宽度
         int layoutHeight = 0;   // 容器已经占据的宽度
         int maxChildHeight = 0; //一行中子控件最高的高度，用于决定下一行高度应该在目前基础上累加多少
-        for(int i = 0; i<count; i++){
+        for(int i = 0; i < count; i ++){
             View child = getChildAt(i);
             //注意此处不能使用getWidth和getHeight，这两个方法必须在onLayout执行完，才能正确获取宽高
             childMeasureWidth = child.getMeasuredWidth();
             childMeasureHeight = child.getMeasuredHeight();
-            if(layoutWidth<getWidth()){
-                //如果一行没有排满，继续往右排列
+            if(layoutWidth < getWidth()){
+                // 如果一行没有排满，继续往右排列
                 left = layoutWidth;
-                right = left+childMeasureWidth;
+                right = left + childMeasureWidth;
                 top = layoutHeight;
-                bottom = top+childMeasureHeight;
+                bottom = top + childMeasureHeight;
             } else{
-                //排满后换行
+                // 排满后换行
                 layoutWidth = 0;
                 layoutHeight += maxChildHeight;
                 maxChildHeight = 0;
 
                 left = layoutWidth;
-                right = left+childMeasureWidth;
+                right = left + childMeasureWidth;
                 top = layoutHeight;
-                bottom = top+childMeasureHeight;
+                bottom = top + childMeasureHeight;
             }
 
             layoutWidth += childMeasureWidth;  //宽度累加
-            if(childMeasureHeight>maxChildHeight){
+            if(childMeasureHeight > maxChildHeight){
                 maxChildHeight = childMeasureHeight;
             }
 

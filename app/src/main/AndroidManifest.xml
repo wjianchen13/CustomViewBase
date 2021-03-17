@@ -18,7 +18,7 @@
         </activity>
         
         <activity android:name=".customview.CustomViewActivity" />
-        <activity android:name=".customview.CustomActivity" />
+        <activity android:name=".customview.custom.CustomActivity" />
         <activity android:name=".customview.DrawActivity" />
         <activity android:name=".customview.TestActivity" />
         <activity android:name=".canvas.CanvasActivity" />
@@ -46,6 +46,8 @@
         <activity android:name=".customway.ViewActivity" />
 
         <activity android:name=".dispatchevent.DispatchEventActivity" />
+        <activity android:name=".customview.customlayoutparams.CustomLayoutParamsActivity" />
+        
         
     </application>
 
