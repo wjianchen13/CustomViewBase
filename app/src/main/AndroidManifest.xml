@@ -19,8 +19,8 @@
         
         <activity android:name=".customview.CustomViewActivity" />
         <activity android:name=".customview.custom.CustomActivity" />
-        <activity android:name=".customview.DrawActivity" />
-        <activity android:name=".customview.TestActivity" />
+        <activity android:name=".customview.custom.DrawActivity" />
+        <activity android:name=".customview.test.TestActivity" />
         <activity android:name=".canvas.CanvasActivity" />
 
         <activity android:name=".canvas.drawcolor.ColorActivity" />

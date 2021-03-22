@@ -31,8 +31,8 @@ public class TestView extends View {
         
         String wMode = widthMode == MeasureSpec.AT_MOST ? "AT_MOST" : widthMode == MeasureSpec.EXACTLY ? "EXACTLY" : "UNSPECIFIED";
         String hMode = heightMode == MeasureSpec.AT_MOST ? "AT_MOST" : heightMode == MeasureSpec.EXACTLY ? "EXACTLY" : "UNSPECIFIED";
-        log("==============================================================================================");
-        log(getStack());
+        log("============================================================================================== View");
+//        log(getStack());
         log("宽的模式: " + wMode);
         log("高的模式: " + hMode);
         log("宽的尺寸: " + widthSize);
@@ -46,7 +46,7 @@ public class TestView extends View {
         
     }
     
-    private void log(String str) {
+    public static void log(String str) {
         System.out.println("===================> " + str);
     }
 

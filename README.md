@@ -4,7 +4,8 @@
 画布相关操作  
 
 # customview   
-自定义View，ViewGroup的基本方式，测试代码
+自定义View，ViewGroup的基本方式，测试代码  
+测试getChildMeasureSpec  
 
 # customway  
 自定义View的三种方式  
@@ -14,6 +15,9 @@
 
 # dispatchevent
 事件分发测试
+
+# customlayoutparams  
+自定义layoutParams
 
 
 

@@ -8,7 +8,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.customviewbase.R;
 import com.example.customviewbase.customview.custom.CustomActivity;
+import com.example.customviewbase.customview.custom.DrawActivity;
 import com.example.customviewbase.customview.customlayoutparams.CustomLayoutParamsActivity;
+import com.example.customviewbase.customview.test.TestActivity;
 import com.example.customviewbase.customview.viewgrouptest.TestViewGroupActivity;
 
 public class CustomViewActivity extends AppCompatActivity {

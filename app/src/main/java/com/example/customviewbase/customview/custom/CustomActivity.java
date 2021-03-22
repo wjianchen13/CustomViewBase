@@ -1,16 +1,12 @@
 package com.example.customviewbase.customview.custom;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.customviewbase.R;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class CustomActivity extends AppCompatActivity {
 
