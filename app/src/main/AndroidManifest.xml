@@ -47,7 +47,7 @@
 
         <activity android:name=".dispatchevent.DispatchEventActivity" />
         <activity android:name=".customview.customlayoutparams.CustomLayoutParamsActivity" />
-        
+        <activity android:name=".customview.custommargin.CustomMarginActivity" />
         
     </application>
 

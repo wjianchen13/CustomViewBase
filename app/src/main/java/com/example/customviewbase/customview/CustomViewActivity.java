@@ -10,6 +10,7 @@ import com.example.customviewbase.R;
 import com.example.customviewbase.customview.custom.CustomActivity;
 import com.example.customviewbase.customview.custom.DrawActivity;
 import com.example.customviewbase.customview.customlayoutparams.CustomLayoutParamsActivity;
+import com.example.customviewbase.customview.custommargin.CustomMarginActivity;
 import com.example.customviewbase.customview.test.TestActivity;
 import com.example.customviewbase.customview.viewgrouptest.TestViewGroupActivity;
 
@@ -39,5 +40,9 @@ public class CustomViewActivity extends AppCompatActivity {
 
     public void onCustomParams(View v) {
         startActivity(new Intent(this, CustomLayoutParamsActivity.class));
+    }
+
+    public void onMargin(View v) {
+        startActivity(new Intent(this, CustomMarginActivity.class));
     }
 }
