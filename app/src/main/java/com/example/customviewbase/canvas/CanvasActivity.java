@@ -21,6 +21,9 @@ import com.example.customviewbase.canvas.scale.ScaleActivity;
 import com.example.customviewbase.canvas.translate.TranslateActivity;
 import com.example.customviewbase.customview.CustomViewActivity;
 
+/**
+ * https://www.gcssloop.com/customview/CustomViewProcess
+ */
 public class CanvasActivity extends AppCompatActivity {
 
     @Override

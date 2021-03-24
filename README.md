@@ -3,7 +3,7 @@
 # canvas  
 画布相关操作  
 
-# customview   
+# customviewgroup   
 自定义View，ViewGroup的基本方式，测试代码  
 测试getChildMeasureSpec  
 

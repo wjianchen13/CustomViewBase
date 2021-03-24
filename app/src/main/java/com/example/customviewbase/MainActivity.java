@@ -9,6 +9,7 @@ import android.view.View;
 import com.example.customviewbase.canvas.CanvasActivity;
 import com.example.customviewbase.customview.CustomViewActivity;
 import com.example.customviewbase.customway.CustomWayActivity;
+import com.example.customviewbase.demo.DemoActivity;
 import com.example.customviewbase.dispatchevent.DispatchEventActivity;
 import com.example.customviewbase.specmode.SpecModeActivity;
 
@@ -38,6 +39,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void onDispatch(View v) {
         startActivity(new Intent(this, DispatchEventActivity.class));
+    }
+
+    public void onDemo(View v) {
+        startActivity(new Intent(this, DemoActivity.class));
     }
     
 }

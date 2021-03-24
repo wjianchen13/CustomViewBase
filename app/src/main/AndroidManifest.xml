@@ -18,8 +18,8 @@
         </activity>
         
         <activity android:name=".customview.CustomViewActivity" />
-        <activity android:name=".customview.custom.CustomActivity" />
-        <activity android:name=".customview.custom.DrawActivity" />
+        <activity android:name=".customview.customviewgroup.CustomActivity" />
+        <activity android:name=".customview.customviewgroup.DrawActivity" />
         <activity android:name=".customview.test.TestActivity" />
         <activity android:name=".canvas.CanvasActivity" />
 
@@ -48,6 +48,10 @@
         <activity android:name=".dispatchevent.DispatchEventActivity" />
         <activity android:name=".customview.customlayoutparams.CustomLayoutParamsActivity" />
         <activity android:name=".customview.custommargin.CustomMarginActivity" />
+        <activity android:name=".demo.DemoActivity" />
+        <activity android:name=".demo.pan.PanActivity" />
+        
+        
         
     </application>
 
