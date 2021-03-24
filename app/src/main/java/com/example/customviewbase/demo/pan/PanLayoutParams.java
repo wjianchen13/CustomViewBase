@@ -14,7 +14,8 @@ public class PanLayoutParams extends ViewGroup.MarginLayoutParams {
     public static final int POSITION_RIGHT = 2; // 右上方
     public static final int POSITION_BOTTOM = 3; // 左下角
     public static final int POSITION_RIGHTANDBOTTOM = 4; // 右下角
-
+    public static final int POSITION_CENTERHORIZONTAL = 5; // 水平居中
+    
     public int position = POSITION_LEFT;  // 默认我们的位置就是左上角
 
     public PanLayoutParams(Context c, AttributeSet attrs) {

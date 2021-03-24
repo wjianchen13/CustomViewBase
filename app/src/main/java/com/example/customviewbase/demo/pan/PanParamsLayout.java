@@ -1,31 +1,59 @@
 package com.example.customviewbase.demo.pan;
 
 import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+
+import com.example.customviewbase.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * 自定义布局管理器的示例。
- * https://blog.csdn.net/ldld1717/article/details/80458917?spm=1001.2014.3001.5501
- * 简单实现水平排列效果
+ * 转盘
  */
 public class PanParamsLayout extends ViewGroup {
     
     private static final String TAG = "CustomParamsLayout";
+    
+    private Adapter mAdapter;
+
+    /**
+     * 绘制背景
+     */
+    private Paint mBackgroundPaint = new Paint();
 
     public PanParamsLayout(Context context) {
         super(context);
+        initBackgroundPaint();
     }
 
     public PanParamsLayout(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
-    }
-
-    public PanParamsLayout(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
+        initBackgroundPaint();
     }
     
+    public PanParamsLayout(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+        initBackgroundPaint();
+    }
+
+    /**
+     * 绘制背景画笔
+     */
+    private void initBackgroundPaint() {
+        mBackgroundPaint.setColor(Color.BLACK);       //设置画笔颜色
+        mBackgroundPaint.setStyle(Paint.Style.FILL);  //设置画笔模式为填充
+        mBackgroundPaint.setStrokeWidth(10f);         //设置画笔宽度为10px
+    }
+
+
     @Override
     public LayoutParams generateLayoutParams(AttributeSet attrs) {
         return new PanLayoutParams(getContext(), attrs);
@@ -38,7 +66,7 @@ public class PanParamsLayout extends ViewGroup {
     
     @Override
     protected LayoutParams generateDefaultLayoutParams() {
-        return new PanLayoutParams (LayoutParams.MATCH_PARENT , LayoutParams.MATCH_PARENT);
+        return new PanLayoutParams (LayoutParams.WRAP_CONTENT , LayoutParams.WRAP_CONTENT);
     }
     
     @Override
@@ -52,6 +80,7 @@ public class PanParamsLayout extends ViewGroup {
     @Override
     protected void onMeasure( int widthMeasureSpec, int heightMeasureSpec) {
         // 获得此ViewGroup上级容器为其推荐的宽和高，以及计算模式  
+//        if(mAdapter != null && getChildCount() == mAdapter.getCount())
         int widthMode = MeasureSpec. getMode(widthMeasureSpec);
         int heightMode = MeasureSpec. getMode(heightMeasureSpec);
         int sizeWidth = MeasureSpec. getSize(widthMeasureSpec);
@@ -126,12 +155,102 @@ public class PanParamsLayout extends ViewGroup {
                     left = getWidth() - childMeasureWidth;
                     top = getHeight() - childMeasureHeight;
                     break;
+                case PanLayoutParams.POSITION_CENTERHORIZONTAL: // 水平居中
+                    left = (getWidth() - childMeasureWidth) / 2;
+                    top = 0;
+                    break;
+                
                 default:
                     break;
             }
 
-            // 确定子控件的位置，四个参数分别代表（左上右下）点的坐标值
+            // 确定子控件的位置
             child.layout(left, top, left + childMeasureWidth, top + childMeasureHeight);
+            setRotation(child, getClildRotation(i));
+        }
+    }
+
+    @Override
+    protected void dispatchDraw(Canvas canvas) {
+        drawBackground(canvas);
+        super.dispatchDraw(canvas);
+    }
+
+    /**
+     * 绘制背景
+     * @param canvas
+     */
+    private void drawBackground(Canvas canvas) {
+        if(mBackgroundPaint != null) {
+            int center = getWidth() / 2;
+            canvas.drawCircle(center,center,center, mBackgroundPaint);  // 绘制一个圆心坐标在(500,500)，半径为400 的圆。
+        }
+    }
+
+    /**
+     * 获取每个View的旋转角度
+     * @return
+     */
+    private float getClildRotation(int position) {
+        if(mAdapter == null || mAdapter.getCount() == 0) {
+            return 0f;
+        }
+        return (float)360 / mAdapter.getCount() * position;
+        
+    }
+
+    /**
+     * setAdapter
+     * @param mAdapter
+     */
+    public void setAdapter(Adapter mAdapter) {
+        this.mAdapter = mAdapter;
+        addAllView();
+    }
+    
+    
+//    /**
+//     * 添加数据
+//     */
+//    public void addData(PanItem item) {
+//        if(item == null) {
+//            throw new IllegalStateException("添加的数据不能为空");
+//        }
+//        if(mData == null) {
+//           mData = new ArrayList<>();
+//        }
+//        mData.add(item);
+//    }
+
+    /**
+     * 添加子View
+     * @param 
+     */
+    public void addAllView() {
+//        RelativeLayout layout = (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.item_pan, null);
+//        PanLayoutParams lp = new PanLayoutParams(Utils.dip2px(getContext(), 60), Utils.dip2px(getContext(), 150));
+//        lp.position = PanLayoutParams.POSITION_CENTERHORIZONTAL;
+//        layout.setLayoutParams(lp);
+//        addView(layout);
+        if(mAdapter == null || mAdapter.getCount() == 0) {
+            return ;
+        }
+        for(int i = 0; i < mAdapter.getCount(); i ++) {
+            addView(mAdapter.getView(i));
+        }
+        
+    }
+
+    /**
+     * 设置旋转角度，setPivotX setPivotY是相对于View自身的位置
+     * @param v
+     * @param rotation
+     */
+    private void setRotation(View v, float rotation) {
+        if(v != null) {
+            v.setPivotX(v.getWidth() / 2);
+            v.setPivotY(v.getHeight());
+            v.setRotation(rotation);
         }
     }
 
