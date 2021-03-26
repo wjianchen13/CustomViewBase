@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.customviewbase.R;
 import com.example.customviewbase.canvas.drawText.DrawTextActivity;
 import com.example.customviewbase.canvas.drawarc.ArcActivity;
+import com.example.customviewbase.canvas.drawbitmap.BitmapActivity;
 import com.example.customviewbase.canvas.drawcircle.CircleActivity;
 import com.example.customviewbase.canvas.drawcolor.ColorActivity;
 import com.example.customviewbase.canvas.drawline.LineActivity;
@@ -17,6 +18,7 @@ import com.example.customviewbase.canvas.drawpoint.PointActivity;
 import com.example.customviewbase.canvas.drawrect.RectActivity;
 import com.example.customviewbase.canvas.drawroundrect.RoundRectActivity;
 import com.example.customviewbase.canvas.paint.PaintActivity;
+import com.example.customviewbase.canvas.rotate.RotateActivity;
 import com.example.customviewbase.canvas.scale.ScaleActivity;
 import com.example.customviewbase.canvas.translate.TranslateActivity;
 import com.example.customviewbase.customview.CustomViewActivity;
@@ -154,6 +156,17 @@ public class CanvasActivity extends AppCompatActivity {
     }
 
     /**
+     * 画布旋转
+     * @param
+     * @return
+     */
+    public void onRotate(View v) {
+        Intent it = new Intent();
+        it.setClass(CanvasActivity.this, RotateActivity.class);
+        startActivity(it);
+    }
+    
+    /**
      * 文字
      * @param
      * @return
@@ -163,6 +176,16 @@ public class CanvasActivity extends AppCompatActivity {
         it.setClass(CanvasActivity.this, DrawTextActivity.class);
         startActivity(it);
     }
-    
+
+    /**
+     * 绘制Bitmap
+     * @param
+     * @return
+     */
+    public void onBitmap(View v) {
+        Intent it = new Intent();
+        it.setClass(CanvasActivity.this, BitmapActivity.class);
+        startActivity(it);
+    }
     
 }

@@ -35,6 +35,8 @@
         <activity android:name=".canvas.translate.TranslateActivity" />
         <activity android:name=".canvas.scale.ScaleActivity" />
         <activity android:name=".canvas.drawText.DrawTextActivity" />
+        <activity android:name=".canvas.rotate.RotateActivity" />
+        <activity android:name=".canvas.drawbitmap.BitmapActivity" />
         <activity android:name=".specmode.SpecModeActivity" />
         <activity android:name=".customview.viewgrouptest.base.BaseActivity" />
         <activity android:name=".customview.viewgrouptest.test.TestActivity" />

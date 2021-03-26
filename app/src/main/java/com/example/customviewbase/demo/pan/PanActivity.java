@@ -24,6 +24,8 @@ import java.util.List;
  * 
  * 问题的原因是这样的：任何使用 addView(...) 的方法，无论你所实例化的 View 本身的 xml 的 width 和 height 设置了什么，都是没效果的，
  * 请看清楚，是 width height 失效，上面的 scaleType 是有效的， 问题 java 代码中调用 addView 的时候并没有传入 LayoutParam 布局参数
+ * 
+ * 
  */
 public class PanActivity extends AppCompatActivity {
     
@@ -68,7 +70,7 @@ public class PanActivity extends AppCompatActivity {
         plTest.setPivotX(plTest.getWidth() / 2);
         plTest.setPivotY(plTest.getWidth() / 2);
         ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(
-                plTest, "rotation", 0, 7200);
+                plTest, "rotation", 0, 720);
         objectAnimator.setDuration(3000);
         objectAnimator.setInterpolator(new LinearInterpolator());
         objectAnimator.start();

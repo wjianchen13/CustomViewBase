@@ -112,9 +112,27 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="10dp"
+            android:text="画布旋转"
+            android:textAllCaps="false"
+            android:onClick="onRotate" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
             android:text="文字"
             android:textAllCaps="false"
             android:onClick="onText" />
+        
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="绘制Bitmap"
+            android:textAllCaps="false"
+            android:onClick="onBitmap" />
 
     </LinearLayout>
 </ScrollView>
