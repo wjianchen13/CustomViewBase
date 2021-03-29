@@ -3,16 +3,20 @@ package com.example.customviewbase.demo.pan;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.customviewbase.R;
+import com.example.customviewbase.glide.GlideApp;
 
 import java.util.List;
 
 public class PanAdapter implements Adapter {
     
     View V3 = null;
+
+    private String url = "https://timg.kiwii.tv/upload/anchor_image/345X257/99/4029899_54acf4035e058.jpg";
 
     /**
      * 需要显示的View数据列表
@@ -49,6 +53,11 @@ public class PanAdapter implements Adapter {
             view.setLayoutParams(lp);
             TextView tvTest = view.findViewById(R.id.tv_test);
             tvTest.setText(mData.get(position).getName());
+            ImageView imgvTest = view.findViewById(R.id.imgv_test);
+            GlideApp.with(mContext)
+                    .load(url)
+                    .circleCrop()
+                    .into(imgvTest);
             V3 = view;
             return view;
         }
