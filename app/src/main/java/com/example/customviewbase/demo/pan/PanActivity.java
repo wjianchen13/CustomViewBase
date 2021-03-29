@@ -69,6 +69,90 @@ public class PanActivity extends AppCompatActivity {
         plTest.setAdapter(mAdapter = new PanAdapter(this, data));
     }
 
+    public void onAdd2(View v) {
+        List<PanItem> data = new ArrayList<>();
+        data.add(new PanItem("test21", ""));
+        data.add(new PanItem("test22", ""));
+        plTest.setAdapter(mAdapter = new PanAdapter(this, data));
+    }
+    
+    public void onAdd3(View v) {
+        List<PanItem> data = new ArrayList<>();
+        data.add(new PanItem("test31", ""));
+        data.add(new PanItem("test32", ""));
+        data.add(new PanItem("test33", ""));
+        plTest.setAdapter(mAdapter = new PanAdapter(this, data));
+    }
+
+    public void onAdd4(View v) {
+        List<PanItem> data = new ArrayList<>();
+        data.add(new PanItem("test41", ""));
+        data.add(new PanItem("test42", ""));
+        data.add(new PanItem("test43", ""));
+        data.add(new PanItem("test44", ""));
+        plTest.setAdapter(mAdapter = new PanAdapter(this, data));
+    }
+
+    public void onAdd5(View v) {
+        List<PanItem> data = new ArrayList<>();
+        data.add(new PanItem("test51", ""));
+        data.add(new PanItem("test52", ""));
+        data.add(new PanItem("test53", ""));
+        data.add(new PanItem("test54", ""));
+        data.add(new PanItem("test55", ""));
+        plTest.setAdapter(mAdapter = new PanAdapter(this, data));
+    }
+
+    public void onAdd6(View v) {
+        List<PanItem> data = new ArrayList<>();
+        data.add(new PanItem("test61", ""));
+        data.add(new PanItem("test62", ""));
+        data.add(new PanItem("test63", ""));
+        data.add(new PanItem("test64", ""));
+        data.add(new PanItem("test65", ""));
+        data.add(new PanItem("test66", ""));
+        plTest.setAdapter(mAdapter = new PanAdapter(this, data));
+    }
+
+    public void onAdd7(View v) {
+        List<PanItem> data = new ArrayList<>();
+        data.add(new PanItem("test71", ""));
+        data.add(new PanItem("test72", ""));
+        data.add(new PanItem("test73", ""));
+        data.add(new PanItem("test74", ""));
+        data.add(new PanItem("test75", ""));
+        data.add(new PanItem("test76", ""));
+        data.add(new PanItem("test77", ""));
+        plTest.setAdapter(mAdapter = new PanAdapter(this, data));
+    }
+
+    public void onAdd8(View v) {
+        List<PanItem> data = new ArrayList<>();
+        data.add(new PanItem("test81", ""));
+        data.add(new PanItem("test82", ""));
+        data.add(new PanItem("test83", ""));
+        data.add(new PanItem("test84", ""));
+        data.add(new PanItem("test85", ""));
+        data.add(new PanItem("test86", ""));
+        data.add(new PanItem("test87", ""));
+        data.add(new PanItem("test88", ""));
+        plTest.setAdapter(mAdapter = new PanAdapter(this, data));
+    }
+
+    public void onAdd9(View v) {
+        List<PanItem> data = new ArrayList<>();
+        data.add(new PanItem("test91", ""));
+        data.add(new PanItem("test92", ""));
+        data.add(new PanItem("test93", ""));
+        data.add(new PanItem("test94", ""));
+        data.add(new PanItem("test95", ""));
+        data.add(new PanItem("test96", ""));
+        data.add(new PanItem("test97", ""));
+        data.add(new PanItem("test98", ""));
+        data.add(new PanItem("test99", ""));
+        plTest.setAdapter(mAdapter = new PanAdapter(this, data));
+    }
+
     /**
      * 启动旋转
      * @param v

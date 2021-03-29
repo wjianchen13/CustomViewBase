@@ -10,31 +10,103 @@
         android:layout_height="300dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp" />
-
-    <Button
-        android:id="@+id/btn_test"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="test"
-        android:textAllCaps="false"
-        android:onClick="onTest" />
     
     <Button
         android:id="@+id/btn_start"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/btn_test"
+        android:layout_alignParentBottom="true"
         android:text="启动"
         android:textAllCaps="false"
         android:onClick="onStart" />
 
     <Button
+        android:id="@+id/set"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/btn_start"
         android:text="测试先旋转后设置图片"
         android:textAllCaps="false"
         android:onClick="onSet" />
+
+    <Button
+        android:id="@+id/btn_add2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/set"
+        android:text="添加2个"
+        android:textAllCaps="false"
+        android:onClick="onAdd2" />
+    
+    <Button
+        android:id="@+id/btn_add3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/btn_add2"
+        android:layout_toRightOf="@id/btn_add2"
+        android:text="添加3个"
+        android:textAllCaps="false"
+        android:onClick="onAdd3" />
+
+    <Button
+        android:id="@+id/btn_add4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/btn_add3"
+        android:layout_toRightOf="@id/btn_add3"
+        android:text="添加4个"
+        android:textAllCaps="false"
+        android:onClick="onAdd4" />
+    
+    
+    <Button
+        android:id="@+id/btn_add5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/btn_add4"
+        android:layout_toRightOf="@id/btn_add4"
+        android:text="添加5个"
+        android:textAllCaps="false"
+        android:onClick="onAdd5" />
+
+    <Button
+        android:id="@+id/btn_add6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/btn_add2"
+        android:text="添加6个"
+        android:textAllCaps="false"
+        android:onClick="onAdd6" />
+
+    <Button
+        android:id="@+id/btn_add7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/btn_add6"
+        android:layout_toRightOf="@id/btn_add6"
+        android:text="添加7个"
+        android:textAllCaps="false"
+        android:onClick="onAdd7" />
+
+    <Button
+        android:id="@+id/btn_add8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/btn_add7"
+        android:layout_toRightOf="@id/btn_add7"
+        android:text="添加8个"
+        android:textAllCaps="false"
+        android:onClick="onAdd8" />
+
+
+    <Button
+        android:id="@+id/btn_add9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/btn_add8"
+        android:layout_toRightOf="@id/btn_add8"
+        android:text="添加9个"
+        android:textAllCaps="false"
+        android:onClick="onAdd9" />
     
 </RelativeLayout>
