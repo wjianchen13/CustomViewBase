@@ -30,6 +30,7 @@ import java.util.List;
 public class PanActivity extends AppCompatActivity {
     
     private PanParamsLayout plTest;
+    private PanAdapter mAdapter;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +60,13 @@ public class PanActivity extends AppCompatActivity {
         data.add(new PanItem("test1", ""));
         data.add(new PanItem("test2", ""));
         data.add(new PanItem("test3", ""));
-        plTest.setAdapter(new PanAdapter(this, data));
+        data.add(new PanItem("test4", ""));
+        data.add(new PanItem("test5", ""));
+        data.add(new PanItem("test6", ""));
+        data.add(new PanItem("test7", ""));
+        data.add(new PanItem("test8", ""));
+        data.add(new PanItem("test9", ""));
+        plTest.setAdapter(mAdapter = new PanAdapter(this, data));
     }
 
     /**
@@ -75,6 +82,15 @@ public class PanActivity extends AppCompatActivity {
         objectAnimator.setInterpolator(new LinearInterpolator());
         objectAnimator.start();
     }
+    
+    /**
+     * 启动旋转
+     * @param v
+     */
+    public void onSet(View v) {
+        mAdapter.set();
+    }
+    
 
     public int dip2px(float dpValue) {
         return dip2px(this,dpValue);

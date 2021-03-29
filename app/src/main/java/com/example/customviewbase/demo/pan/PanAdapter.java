@@ -11,6 +11,8 @@ import com.example.customviewbase.R;
 import java.util.List;
 
 public class PanAdapter implements Adapter {
+    
+    View V3 = null;
 
     /**
      * 需要显示的View数据列表
@@ -47,9 +49,16 @@ public class PanAdapter implements Adapter {
             view.setLayoutParams(lp);
             TextView tvTest = view.findViewById(R.id.tv_test);
             tvTest.setText(mData.get(position).getName());
+            V3 = view;
             return view;
         }
         return null;
+    }
+    
+    public void set() {
+        if(V3 != null) {
+            V3.findViewById(R.id.imgv_test).setBackgroundResource(R.drawable.ic_test);
+        }
     }
     
 }

@@ -22,4 +22,8 @@ public class Utils {
         }
         return 2.0f;
     }
+    
+    public static void println(String str) {
+        System.out.println("=================================> " + str);
+    }
 }

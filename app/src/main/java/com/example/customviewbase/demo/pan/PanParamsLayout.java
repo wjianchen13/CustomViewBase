@@ -1,28 +1,40 @@
 package com.example.customviewbase.demo.pan;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 
 import com.example.customviewbase.R;
 
-import java.util.ArrayList;
-import java.util.List;
+import static com.example.customviewbase.demo.pan.Utils.println;
 
 /**
  * 转盘
+ * 1. 点击2次添加数据的时候报错：did not set the measured dimension by calling setMeasuredDimension()
+ * 原因，因为在onMeasure判断了getChildCount和mAdapter.getCount不一样，导致没有调用setMeasuredDimension
+ * 
  */
 public class PanParamsLayout extends ViewGroup {
     
     private static final String TAG = "CustomParamsLayout";
     
     private Adapter mAdapter;
+
+    private float mWidth;
+    private float mHeight;
+    private Bitmap bitmap;
+    private int mBitmapWidth;
+
+    private Paint mPaint = new Paint();
+
+    private Matrix matrix = new Matrix();
 
     /**
      * 绘制背景
@@ -32,27 +44,47 @@ public class PanParamsLayout extends ViewGroup {
     public PanParamsLayout(Context context) {
         super(context);
         initBackgroundPaint();
+        init();
     }
 
     public PanParamsLayout(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
         initBackgroundPaint();
+        init();
     }
     
     public PanParamsLayout(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         initBackgroundPaint();
+        init();
     }
 
     /**
      * 绘制背景画笔
      */
     private void initBackgroundPaint() {
-        mBackgroundPaint.setColor(Color.BLACK);       //设置画笔颜色
+        if(mBackgroundPaint == null)
+            return ;
+        mBackgroundPaint.setColor(Color.argb(255, 255, 0, 0));       //设置画笔颜色
         mBackgroundPaint.setStyle(Paint.Style.FILL);  //设置画笔模式为填充
         mBackgroundPaint.setStrokeWidth(10f);         //设置画笔宽度为10px
     }
 
+    /**
+     * 绘制背景画笔
+     */
+    private void initLinesPaint() {
+        if(mBackgroundPaint == null)
+            return ;
+        mBackgroundPaint.setColor(Color.argb(255, 0, 0, 255));       //设置画笔颜色
+        mBackgroundPaint.setStyle(Paint.Style.FILL);  //设置画笔模式为填充
+        mBackgroundPaint.setStrokeWidth(5.0f);         //设置画笔宽度
+    }
+    
+    private void init() {
+        bitmap = BitmapFactory.decodeResource(getContext().getResources(), R.drawable.ic_count_down_2);
+        mBitmapWidth = bitmap.getWidth();
+    }
 
     @Override
     public LayoutParams generateLayoutParams(AttributeSet attrs) {
@@ -80,7 +112,8 @@ public class PanParamsLayout extends ViewGroup {
     @Override
     protected void onMeasure( int widthMeasureSpec, int heightMeasureSpec) {
         // 获得此ViewGroup上级容器为其推荐的宽和高，以及计算模式  
-//        if(mAdapter != null && getChildCount() == mAdapter.getCount())
+        if(mAdapter != null && getChildCount() != mAdapter.getCount()) // 每次addView都会onMeasure和onLayout，防止过度measure
+            return ;
         int widthMode = MeasureSpec. getMode(widthMeasureSpec);
         int heightMode = MeasureSpec. getMode(heightMeasureSpec);
         int sizeWidth = MeasureSpec. getSize(widthMeasureSpec);
@@ -124,6 +157,8 @@ public class PanParamsLayout extends ViewGroup {
     @Override
     protected void onLayout( boolean changed, int left, int top, int right, int bottom) {
         final int count = getChildCount();
+        if(mAdapter != null && getChildCount() != mAdapter.getCount())
+            return ;
         int childMeasureWidth = 0;
         int childMeasureHeight = 0;
         PanLayoutParams params = null;
@@ -168,11 +203,15 @@ public class PanParamsLayout extends ViewGroup {
             child.layout(left, top, left + childMeasureWidth, top + childMeasureHeight);
             setRotation(child, getClildRotation(i));
         }
+        mWidth = getWidth();
+        mHeight = getHeight();
     }
 
     @Override
     protected void dispatchDraw(Canvas canvas) {
         drawBackground(canvas);
+        drawLines(canvas, mAdapter != null && mAdapter.getCount() > 0 ? (float)360 / mAdapter.getCount() : 1);
+        drawArcBackground(canvas, mAdapter != null && mAdapter.getCount() > 0 ? (float)360 / mAdapter.getCount() : 1);
         super.dispatchDraw(canvas);
     }
 
@@ -181,9 +220,45 @@ public class PanParamsLayout extends ViewGroup {
      * @param canvas
      */
     private void drawBackground(Canvas canvas) {
-        if(mBackgroundPaint != null) {
+        if(mBackgroundPaint != null && canvas != null) {
+            initBackgroundPaint();
             int center = getWidth() / 2;
             canvas.drawCircle(center,center,center, mBackgroundPaint);  // 绘制一个圆心坐标在(500,500)，半径为400 的圆。
+        }
+    }
+
+    /**
+     * 绘制每块区域的分割线
+     * @param degrees 画布旋转角度
+     */
+    private void drawLines(Canvas canvas, float degrees) {
+        initLinesPaint();
+        if(canvas != null && mAdapter != null && mAdapter.getCount() > 0) {
+            int center = getWidth() / 2;
+            canvas.save();
+            canvas.translate(center, center);
+            canvas.rotate(degrees / 2);
+            for(int i = 0; i < mAdapter.getCount(); i ++) {
+                canvas.drawLine(0, 0, 0, -center, mBackgroundPaint);
+                canvas.rotate(degrees);
+            }
+            canvas.restore();
+        }
+    }
+
+    /**
+     * 绘制半圆背景
+     * @param degrees 每次画布旋转角度
+     */
+    private void drawArcBackground(Canvas canvas, float degrees) {
+        if(canvas != null && mAdapter != null && mAdapter.getCount() > 0) {
+            canvas.save();
+            canvas.translate(mWidth / 2 - mBitmapWidth / 2, mHeight / 2);
+            for(int i = 0; i < mAdapter.getCount(); i ++) {
+                canvas.drawBitmap(bitmap, matrix, mBackgroundPaint);
+                canvas.rotate(degrees,mBitmapWidth / 2,0);
+            }
+            canvas.restore();
         }
     }
 
@@ -205,6 +280,7 @@ public class PanParamsLayout extends ViewGroup {
      */
     public void setAdapter(Adapter mAdapter) {
         this.mAdapter = mAdapter;
+        removeAllViews(); // 
         addAllView();
     }
     

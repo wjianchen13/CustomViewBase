@@ -71,6 +71,7 @@ public class BitmapView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        canvas.save();
         canvas.drawLine(0,mHeight / 2, mWidth,mHeight / 2, mPaint);
         canvas.drawLine(mWidth / 2 ,0,mWidth / 2,mHeight, mPaint);   
         canvas.translate(mWidth / 2 - mBitmapWidth / 2, mHeight / 2);
@@ -82,7 +83,7 @@ public class BitmapView extends View {
         canvas.drawBitmap(bitmap, matrix, paint);
         canvas.rotate(90,mBitmapWidth / 2,0);               // 旋转180度 <-- 旋转中心向右偏移200个单位
         canvas.drawBitmap(bitmap, matrix, paint);
-        
+        canvas.restore();
         
 //        canvas.save();
 //        canvas.rotate(90);
