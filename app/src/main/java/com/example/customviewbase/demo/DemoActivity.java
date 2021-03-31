@@ -14,6 +14,7 @@ import com.example.customviewbase.customview.customviewgroup.DrawActivity;
 import com.example.customviewbase.customview.test.TestActivity;
 import com.example.customviewbase.customview.viewgrouptest.TestViewGroupActivity;
 import com.example.customviewbase.demo.pan.PanActivity;
+import com.example.customviewbase.demo.stroke.StrokeActivity;
 
 public class DemoActivity extends AppCompatActivity {
 
@@ -27,8 +28,12 @@ public class DemoActivity extends AppCompatActivity {
         startActivity(new Intent(this, PanActivity.class));
     }
 
+    public void onCustomParams(View v) {
+        startActivity(new Intent(this, StrokeActivity.class));
+    }
+
     public void onTest(View v) {
-        startActivity(new Intent(this, TestActivity.class));
+        startActivity(new Intent(this, StrokeActivity.class));
     }
 
     public void onDraw(View v) {
@@ -39,9 +44,6 @@ public class DemoActivity extends AppCompatActivity {
         startActivity(new Intent(this, TestViewGroupActivity.class));
     }
 
-    public void onCustomParams(View v) {
-        startActivity(new Intent(this, CustomLayoutParamsActivity.class));
-    }
 
     public void onMargin(View v) {
         startActivity(new Intent(this, CustomMarginActivity.class));

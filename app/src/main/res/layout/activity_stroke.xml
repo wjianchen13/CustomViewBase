@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding= "utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:openxu="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tool="http://schemas.android.com/tools">
+    
+    <com.example.customviewbase.demo.stroke.StrokeTextView
+        android:id="@+id/tv_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:format="00:00:00"
+        android:text="123456"
+        android:textColor="#ffffffff"
+        android:textSize="12sp"
+        />
+    
+    <Button
+        android:id="@+id/btn_test1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="test1"
+        android:textAllCaps="false"
+        android:onClick="onTest1" />
+
+    <Button
+        android:id="@+id/btn_test2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/btn_test1"
+        android:text="test2"
+        android:textAllCaps="false"
+        android:onClick="onTest2" />
+
+    <Button
+        android:id="@+id/btn_test3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/btn_test2"
+        android:text="test3"
+        android:textAllCaps="false"
+        android:onClick="onTest3" />
+    
+</RelativeLayout>
