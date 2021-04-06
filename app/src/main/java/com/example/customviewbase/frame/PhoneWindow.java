@@ -1,6 +1,7 @@
 package com.example.customviewbase.frame;
 
 import android.content.Context;
+import android.os.IBinder;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 
@@ -24,7 +25,10 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
 
     private ViewGroup mContentRoot;
 //    ...
-
+    
+    public PhoneWindow(Context mContext) {
+        this.mContext = mContext;
+    }
 
     @Override
     public void setContentView(int layoutResID) {
@@ -127,7 +131,7 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
                 */
         return null;
     }
-
+    
 
     protected DecorView generateDecor() {
         return new DecorView(getContext(), -1);

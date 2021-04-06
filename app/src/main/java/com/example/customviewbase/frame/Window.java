@@ -1,5 +1,8 @@
 package com.example.customviewbase.frame;
 
+import android.content.Context;
+import android.os.Build;
+import android.os.IBinder;
 import android.view.View;
 
 import androidx.annotation.IdRes;
@@ -12,6 +15,12 @@ import androidx.annotation.Nullable;
  * 它提供了一系列窗口的方法，比如设置背景，标题等等，而它的唯一实现类则是PhoneWindow
  */
 public abstract class Window {
+
+    private Context mContext;
+    
+//    @UnsupportedAppUsage(maxTargetSdk = Build.VERSION_CODES.P, trackingBug = 115609023)
+    private WindowManager mWindowManager;
+    
     // ...
     @Nullable
     public View findViewById(@IdRes int id) {
@@ -19,14 +28,29 @@ public abstract class Window {
     }
 
     /**
-     * Convenience for * {@link #setContentView(View, android.view.ViewGroup.LayoutParams)}
+     * Convenience for * {setContentView(View, android.view.ViewGroup.LayoutParams)}
      * to set the screen content from a layout resource.  The resource will be * inflated, adding all top-level views to the screen. * * @param layoutResID Resource ID to be inflated.
-     * @see #setContentView(View, android.view.ViewGroup.LayoutParams)
+     * setContentView(View, android.view.ViewGroup.LayoutParams)
      */
     public abstract void setContentView(@LayoutRes int layoutResID);
 //     ...
     
-    private View getDecorView() {
+    public View getDecorView() {
         return null;
+    }
+
+    public void setWindowManager(WindowManager wm, IBinder appToken, String appName,
+                                 boolean hardwareAccelerated) {
+//        mAppToken = appToken;
+//        mAppName = appName;
+//        mHardwareAccelerated = hardwareAccelerated;
+//        if (wm == null) {
+//            wm = (WindowManager)mContext.getSystemService(Context.WINDOW_SERVICE);
+//        }
+        mWindowManager = ((WindowManagerImpl)wm).createLocalWindowManager(this);
+    }
+
+    public WindowManager getWindowManager() {
+        return mWindowManager;
     }
 }
