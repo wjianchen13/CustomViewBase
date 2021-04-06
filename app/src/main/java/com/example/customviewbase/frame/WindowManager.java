@@ -19,5 +19,9 @@ public interface WindowManager extends ViewManager {
 //    public static class LayoutParams extends ViewGroup.LayoutParams
 //            implements Parcelable () {
 //    }
+
+    public static class LayoutParams {
+        
+    }
     
 }

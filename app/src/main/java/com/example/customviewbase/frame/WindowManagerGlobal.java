@@ -15,22 +15,22 @@ public final class WindowManagerGlobal {
         return new WindowManagerGlobal();
     }
 
-    public void addView(View view, ViewGroup.LayoutParams params,
-                        Display display, Window parentWindow) {
-        ...
+    public void addView(View view, ViewGroup.LayoutParams params, Display display, Window parentWindow) {
+//        ...
         ViewRootImpl root;
         View panelParentView = null;
-        
-        ...
+//        ...
 
         root = new ViewRootImpl(view.getContext(), display);
-        view.setLayoutParams(wparams);
-        mViews.add(view);
-        mRoots.add(root);
-        mParams.add(wparams);
-        //ViewRootImpl开始绘制view
-        root.setView(view, wparams, panelParentView);
-        ...
+//        view.setLayoutParams(wparams);
+//        mViews.add(view);
+//        mRoots.add(root);
+//        mParams.add(wparams);
+        /** ViewRootImpl开始绘制view */
+        root.setView(view, null, panelParentView);
+        
+//        root.setView(view, wparams, panelParentView);
+//        ...
     }
 
     public void removeView(View view, boolean flag) {
