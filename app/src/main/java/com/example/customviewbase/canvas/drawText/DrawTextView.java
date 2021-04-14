@@ -26,7 +26,7 @@ public class DrawTextView extends View {
     private void initPaint() {
         mPaint.setColor(Color.BLACK);       //设置画笔颜色
         mPaint.setStyle(Paint.Style.FILL);  //设置画笔模式为填充
-        mPaint.setStrokeWidth(1000f);         //设置画笔宽度为10px
+        mPaint.setStrokeWidth(10);         //设置画笔宽度为10px
         mPaint.setTextSize(50);              // 设置字体大小
     }
 
@@ -51,7 +51,7 @@ public class DrawTextView extends View {
         String str = "ABCDEFG";
 
         // 参数分别为 (文本 基线x 基线y 画笔)
-        canvas.drawText(str, 200, 500, mPaint);
+        canvas.drawText(str, 0, 0, mPaint);
 
     }
 }

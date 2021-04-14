@@ -34,11 +34,21 @@ class ViewRootImpl {
     int mHeight;
 
     View mView;
+    Context mContext;
+    W mWindow;
 
     android.view.WindowManager.LayoutParams lp = mWindowAttributes;
 
     public ViewRootImpl(Context context, Display display) {
-        
+        mContext = context;
+//        mWindowSession = WindowManagerGlobal.getWindowSession();
+//        ...
+        /** 会发现在向WMS请求添加窗口，也就是在addToDisplay中，传递了mWindow这个参数 */
+        mWindow = new W(this);
+//        ...
+        /** 而对于View而言，它的所有绑定信息都是存在一个静态内部类AttachInfo中 */
+//        mAttachInfo = new View.AttachInfo(mWindowSession, mWindow, display, this, mHandler, this);
+//        ...
     }
     
     
@@ -48,21 +58,51 @@ class ViewRootImpl {
          * 首先会调用到requestLayout（），表示添加Window之前先完成第一次layout布局过程，以确保在收到任何系统事件后面重新布局。requestLayout最终会调用performTraversals方法来完成View的绘制。
          */
         requestLayout();
+
+        final WindowManager.LayoutParams mWindowAttributes = new WindowManager.LayoutParams(null, null);
         int res;
         try {
             /**
              * 接着会通过WindowSession最终来完成Window的添加过程。在下面的代码中mWindowSession类型是IWindowSession，
              * 它是一个Binder对象，真正的实现类是Session，也就是说这其实是一次IPC过程，远程调用了Session中的addToDisPlay方法。
              */
+            res = addToDisplay();
 //            res = mWindowSession.addToDisplay(mWindow, mSeq, mWindowAttributes,
 //                    getHostVisibility(), mDisplay.getDisplayId(),
 //                    mAttachInfo.mContentInsets, mAttachInfo.mStableInsets,
 //                    mAttachInfo.mOutsets, mInputChannel);
+
+//            if (res < WindowManagerGlobal.ADD_OKAY) {
+//                mAttachInfo.mRootView = null;
+//                mAdded = false;
+//                mFallbackEventHandler.setView(null);
+//                unscheduleTraversals();
+//                setAccessibilityFocus(null, null);
+//                switch (res) {
+//                    case WindowManagerGlobal.ADD_BAD_APP_TOKEN:
+//                    case WindowManagerGlobal.ADD_BAD_SUBWINDOW_TOKEN:
+//                        throw new WindowManager.BadTokenException(
+//                                "Unable to add window -- token " + attrs.token
+//                                        + " is not valid; is your activity running?");
+//                    case WindowManagerGlobal.ADD_NOT_APP_TOKEN:
+//                        throw new WindowManager.BadTokenException(
+//                                "Unable to add window -- token " + attrs.token
+//                                        + " is not for an application");
+//                    case WindowManagerGlobal.ADD_APP_EXITING:
+//                        throw new WindowManager.BadTokenException(
+//                                "Unable to add window -- app for token " + attrs.token
+//                                        + " is exiting");
+//                       ...
+//                }
+//            }
         } catch (Exception e) {
             
         }
     }
-    
+
+    public int addToDisplay() {
+        return new WindowManagerService().addWindow();
+    }
 
     /**
      * 这个方法是com.android.server.wm.Session里面的
@@ -124,6 +164,10 @@ class ViewRootImpl {
     }
 
     private void performTraversals() {
+
+        /** AttachInfo赋值到每个Window上的View上 */
+//        host.dispatchAttachedToWindow(mAttachInfo, 0);
+        
         int childWidthMeasureSpec = getRootMeasureSpec(mWidth, lp.width);
         int childHeightMeasureSpec = getRootMeasureSpec(mHeight, lp.height);
 

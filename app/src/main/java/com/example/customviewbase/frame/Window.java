@@ -21,6 +21,8 @@ public abstract class Window {
 //    @UnsupportedAppUsage(maxTargetSdk = Build.VERSION_CODES.P, trackingBug = 115609023)
     private WindowManager mWindowManager;
     
+    protected IBinder mAppToken;
+    
     // ...
     @Nullable
     public View findViewById(@IdRes int id) {
@@ -41,7 +43,7 @@ public abstract class Window {
 
     public void setWindowManager(WindowManager wm, IBinder appToken, String appName,
                                  boolean hardwareAccelerated) {
-//        mAppToken = appToken;
+        mAppToken = appToken;
 //        mAppName = appName;
 //        mHardwareAccelerated = hardwareAccelerated;
 //        if (wm == null) {
@@ -52,5 +54,27 @@ public abstract class Window {
 
     public WindowManager getWindowManager() {
         return mWindowManager;
+    }
+
+    public void adjustLayoutParamsForSubWindow(WindowManager.LayoutParams wp) {
+        CharSequence curTitle = wp.getTitle();
+        /** 1. 如果是子窗口类型，则wp.token = decor.getWindowToken()*/
+        if (wp.type >= WindowManager.LayoutParams.FIRST_SUB_WINDOW && 
+                wp.type <= WindowManager.LayoutParams.LAST_SUB_WINDOW) {
+            if (wp.token == null) {
+//                View decor = peekDecorView();
+//                if (decor != null) {
+//                    wp.token = decor.getWindowToken();
+//                }
+            }
+//            ...
+            /** 如果是应用程序窗口，则走分支。一般应用程序窗口的话，mContainer为null，也就是mAppToken，就是Activity的mToken对象 */
+        } else {
+            if (wp.token == null) {
+//                wp.token = mContainer == null ? mAppToken : mContainer.mAppToken;
+            }
+//           ...
+        }
+//     ...
     }
 }

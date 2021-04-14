@@ -28,6 +28,8 @@ public class Activity implements ComponentCallbacks2 {
     
     private Window mWindow;
 
+    IBinder mToken;
+
     private WindowManager mWindowManager;
     
     public boolean mStartedActivity;
@@ -61,7 +63,7 @@ public class Activity implements ComponentCallbacks2 {
         mWindow = new PhoneWindow(null);
         /** 为Window设置WindowManager 可以看到这里WindiwManager的创建是context.getSystemService(Context.WINDOW_SERVICE)*/
         mWindow.setWindowManager(null,
-                null, "",
+                mToken, "",
                 (info.flags & ActivityInfo.FLAG_HARDWARE_ACCELERATED) != 0);
         mWindowManager = mWindow.getWindowManager();
                           

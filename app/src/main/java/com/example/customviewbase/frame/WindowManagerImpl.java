@@ -16,10 +16,11 @@ public final class WindowManagerImpl implements WindowManager {
     private Context mContext;
     private final WindowManagerGlobal mGlobal = WindowManagerGlobal.getInstance();
     private final Display mDisplay = null;
-    private final Window mParentWindow = null;
+    private Window mParentWindow = null;
     
     public WindowManagerImpl(Context context, Window parentWindow) {
-        
+        mContext = context;
+        mParentWindow = parentWindow;
     }
     
     @Override

@@ -20,14 +20,21 @@ public final class WindowManagerGlobal {
         ViewRootImpl root;
         View panelParentView = null;
 //        ...
-
+        
+        final WindowManager.LayoutParams wparams = (WindowManager.LayoutParams) params;
+        if (parentWindow != null) {
+            parentWindow.adjustLayoutParamsForSubWindow(wparams);
+        } else {
+            
+        }
+        
         root = new ViewRootImpl(view.getContext(), display);
 //        view.setLayoutParams(wparams);
 //        mViews.add(view);
 //        mRoots.add(root);
 //        mParams.add(wparams);
         /** ViewRootImpl开始绘制view */
-        root.setView(view, null, panelParentView);
+        root.setView(view, wparams, panelParentView);
         
 //        root.setView(view, wparams, panelParentView);
 //        ...
