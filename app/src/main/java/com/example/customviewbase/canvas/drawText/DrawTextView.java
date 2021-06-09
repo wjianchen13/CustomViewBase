@@ -51,7 +51,7 @@ public class DrawTextView extends View {
         String str = "ABCDEFG";
 
         // 参数分别为 (文本 基线x 基线y 画笔)
-        canvas.drawText(str, 0, 0, mPaint);
+        canvas.drawText(str, 10, 10, mPaint);
 
     }
 }
