@@ -8,7 +8,6 @@
         android:layout_height="match_parent" 
         android:orientation="vertical">
 
-
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -30,15 +29,15 @@
             android:layout_height="wrap_content"
             android:textColor="#000000"
             android:textAllCaps="false"
-            android:text="自定义Layout支持Margin"
-            android:onClick="onMargin"/>
+            android:text="自动底部对齐布局"
+            android:onClick="onBottom"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#000000"
             android:textAllCaps="false"
-            android:text="测试 getChildMeasureSpec"
+            android:text="test"
             android:onClick="onTest"/>
 
         <Button
@@ -46,7 +45,7 @@
             android:layout_height="wrap_content"
             android:textColor="#000000"
             android:textAllCaps="false"
-            android:text="Draw"
+            android:text="test"
             android:onClick="onDraw"/>
 
         <Button
@@ -54,7 +53,7 @@
             android:layout_height="wrap_content"
             android:textColor="#000000"
             android:textAllCaps="false"
-            android:text="ViewGroup"
+            android:text="test"
             android:onClick="onViewGroupTest"/>
 
     </LinearLayout>

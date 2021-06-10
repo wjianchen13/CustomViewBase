@@ -30,10 +30,6 @@ public class CustomLayout extends ViewGroup {
     /**
      * 要求所有的孩子测量自己的大小，然后根据这些孩子的大小完成自己的尺寸测量
      */
- 
-    /**
-     * 为所有的子控件摆放位置.
-     */
     @SuppressLint("NewApi") @Override
     protected void onMeasure( int widthMeasureSpec, int heightMeasureSpec) {
         // 计算出所有的childView的宽和高 
@@ -43,6 +39,10 @@ public class CustomLayout extends ViewGroup {
         setMeasuredDimension(getDefaultSize(getSuggestedMinimumWidth(), widthMeasureSpec),
                 getDefaultSize(getSuggestedMinimumHeight(), heightMeasureSpec));
     }
+
+    /**
+     * 为所有的子控件摆放位置.
+     */
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         final int count = getChildCount();
