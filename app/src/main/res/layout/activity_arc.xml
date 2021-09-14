@@ -3,12 +3,13 @@
     xmlns:cus="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_horizontal"
     android:orientation="vertical">
 
-    <com.example.customviewbase.canvas.drawarc.ArcView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+    <com.example.customviewbase.canvas.drawarc.ArcView1
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="30dp"
         cus:type="0"
         android:background="#ff00ff00" />
 
