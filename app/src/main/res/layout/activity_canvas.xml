@@ -134,5 +134,14 @@
             android:textAllCaps="false"
             android:onClick="onBitmap" />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="贝塞尔曲线"
+            android:textAllCaps="false"
+            android:onClick="onBezier" />
+
     </LinearLayout>
 </ScrollView>

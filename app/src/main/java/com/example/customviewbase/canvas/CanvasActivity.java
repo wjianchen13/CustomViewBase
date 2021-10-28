@@ -7,6 +7,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.customviewbase.R;
+import com.example.customviewbase.canvas.bezier.BezierMainActivity;
 import com.example.customviewbase.canvas.drawText.DrawTextActivity;
 import com.example.customviewbase.canvas.drawarc.ArcActivity;
 import com.example.customviewbase.canvas.drawbitmap.BitmapActivity;
@@ -21,7 +22,6 @@ import com.example.customviewbase.canvas.paint.PaintActivity;
 import com.example.customviewbase.canvas.rotate.RotateActivity;
 import com.example.customviewbase.canvas.scale.ScaleActivity;
 import com.example.customviewbase.canvas.translate.TranslateActivity;
-import com.example.customviewbase.customview.CustomViewActivity;
 
 /**
  * https://www.gcssloop.com/customview/CustomViewProcess
@@ -185,6 +185,17 @@ public class CanvasActivity extends AppCompatActivity {
     public void onBitmap(View v) {
         Intent it = new Intent();
         it.setClass(CanvasActivity.this, BitmapActivity.class);
+        startActivity(it);
+    }
+
+    /**
+     * 绘制Bitmap
+     * @param
+     * @return
+     */
+    public void onBezier(View v) {
+        Intent it = new Intent();
+        it.setClass(CanvasActivity.this, BezierMainActivity.class);
         startActivity(it);
     }
     
