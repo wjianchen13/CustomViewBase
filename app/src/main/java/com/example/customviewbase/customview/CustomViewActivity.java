@@ -13,6 +13,7 @@ import com.example.customviewbase.customview.customlayoutparams.CustomLayoutPara
 import com.example.customviewbase.customview.custommargin.CustomMarginActivity;
 import com.example.customviewbase.customview.flowlayout.FlowLayoutActivity;
 import com.example.customviewbase.customview.test.TestActivity;
+import com.example.customviewbase.customview.test1.TestActivity1;
 import com.example.customviewbase.customview.viewgrouptest.TestViewGroupActivity;
 
 public class CustomViewActivity extends AppCompatActivity {
@@ -50,4 +51,9 @@ public class CustomViewActivity extends AppCompatActivity {
     public void onFlowLayout(View v) {
         startActivity(new Intent(this, FlowLayoutActivity.class));
     }
+
+    public void onMeasure(View v) {
+        startActivity(new Intent(this, TestActivity1.class));
+    }
+    
 }

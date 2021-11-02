@@ -1,14 +1,13 @@
 package com.example.customviewbase.customview.customlayoutparams;
 
 import android.content.Context;
+import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * 自定义布局管理器的示例。
- * https://blog.csdn.net/ldld1717/article/details/80458917?spm=1001.2014.3001.5501
- * 简单实现水平排列效果
+ * 自定义布局参数
  */
 public class CustomParamsLayout extends ViewGroup {
     
@@ -90,6 +89,11 @@ public class CustomParamsLayout extends ViewGroup {
 
         // 测量并保存layout的宽高
         setMeasuredDimension(layoutWidth, layoutHeight);
+    }
+
+    @Override
+    protected void dispatchDraw(Canvas canvas) {
+        super.dispatchDraw(canvas);
     }
 
     @Override

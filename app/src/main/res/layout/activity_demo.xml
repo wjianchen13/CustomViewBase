@@ -37,8 +37,8 @@
             android:layout_height="wrap_content"
             android:textColor="#000000"
             android:textAllCaps="false"
-            android:text="test"
-            android:onClick="onTest"/>
+            android:text="点击绘制View"
+            android:onClick="onDraw"/>
 
         <Button
             android:layout_width="match_parent"

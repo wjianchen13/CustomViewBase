@@ -33,7 +33,7 @@ public class TestLayout extends ViewGroup {
     protected void onMeasure( int widthMeasureSpec, int heightMeasureSpec) {
 //        // 计算出所有的childView的宽和高 
 //        measureChildren(widthMeasureSpec, heightMeasureSpec);
-
+        
         //先度量孩子
         int childCount = getChildCount();
         int paddingLeft = getPaddingLeft();
@@ -63,10 +63,14 @@ public class TestLayout extends ViewGroup {
             int heightMode = MeasureSpec.getMode(heightMeasureSpec); // 获取高的模式
             String wMode = widthMode == MeasureSpec.AT_MOST ? "AT_MOST" : widthMode == MeasureSpec.EXACTLY ? "EXACTLY" : "UNSPECIFIED";
             String hMode = heightMode == MeasureSpec.AT_MOST ? "AT_MOST" : heightMode == MeasureSpec.EXACTLY ? "EXACTLY" : "UNSPECIFIED";
+            int widthSize = MeasureSpec.getSize(widthMeasureSpec);   // 获取宽的尺寸
+            int heightSize = MeasureSpec.getSize(heightMeasureSpec); // 获取高的尺寸
             TestView.log("============================================================================================== ViewGroup");
 //        log(getStack());
             TestView.log("宽的模式: " + wMode);
             TestView.log("高的模式: " + hMode);
+            TestView.log("宽的尺寸: " + widthSize);
+            TestView.log("高的尺寸: " + heightSize);
 //            
             
 //            int childWidthMeasureSpec = MeasureSpec.makeMeasureSpec(320, MeasureSpec.EXACTLY);

@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.customviewbase.R;
 import com.example.customviewbase.demo.bottom.BottomActivity;
+import com.example.customviewbase.demo.changeview.ChangeViewActivity;
 import com.example.customviewbase.demo.pan.PanActivity;
 import com.example.customviewbase.demo.stroke.StrokeActivity;
 
@@ -32,7 +33,7 @@ public class DemoActivity extends AppCompatActivity {
     }
 
     public void onDraw(View v) {
-
+        startActivity(new Intent(this, ChangeViewActivity.class));
     }
 
     public void onViewGroupTest(View v) {

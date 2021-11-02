@@ -1,6 +1,7 @@
-package com.example.customviewbase.customview.custommargin;
+package com.example.customviewbase.customview.test1;
 
 import android.content.Context;
+import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,42 +9,63 @@ import android.view.ViewGroup;
 import com.example.customviewbase.customview.customlayoutparams.CustomLayoutParams;
 
 /**
- * 自定义布局参数支持margin
+ * 自定义布局管理器的示例。 这个用来测试getChildMeasureSpec方法
+ * 子View绘制顺序
  */
-public class CustomMarginLayout extends ViewGroup {
+public class MyViewGroup extends ViewGroup {
     
-    private static final String TAG = "CustomParamsLayout";
+    private static final String TAG = "MyViewGroup";
 
-    public CustomMarginLayout(Context context) {
+    public MyViewGroup(Context context) {
         super(context);
     }
 
-    public CustomMarginLayout(Context context, AttributeSet attrs) {
+    public MyViewGroup(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public CustomMarginLayout(Context context, AttributeSet attrs, int defStyle) {
+    public MyViewGroup(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
-    
+
     @Override
     public LayoutParams generateLayoutParams(AttributeSet attrs) {
         return new CustomLayoutParams(getContext(), attrs);
     }
-    
+
     @Override
     protected LayoutParams generateLayoutParams(LayoutParams p) {
         return new CustomLayoutParams (p);
     }
-    
+
     @Override
     protected LayoutParams generateDefaultLayoutParams() {
         return new CustomLayoutParams (LayoutParams.MATCH_PARENT , LayoutParams.MATCH_PARENT);
     }
-    
+
     @Override
     protected boolean checkLayoutParams(LayoutParams p) {
         return p instanceof CustomLayoutParams;
+    }
+
+    @Override
+    protected void dispatchDraw(Canvas canvas) {
+        super.dispatchDraw(canvas);
+    }
+
+    @Override
+    protected boolean drawChild(Canvas canvas, View child, long drawingTime) {
+        return super.drawChild(canvas, child, drawingTime);
+    }
+
+    @Override
+    protected boolean isChildrenDrawingOrderEnabled() {
+        return super.isChildrenDrawingOrderEnabled();
+    }
+
+    @Override
+    protected int getChildDrawingOrder(int childCount, int drawingPosition) {
+        return super.getChildDrawingOrder(childCount, drawingPosition);
     }
 
     /**

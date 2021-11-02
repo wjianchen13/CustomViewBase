@@ -23,6 +23,7 @@
         <activity android:name=".customview.customviewgroup.CustomActivity" />
         <activity android:name=".customview.customviewgroup.DrawActivity" />
         <activity android:name=".customview.test.TestActivity" />
+        <activity android:name=".customview.test1.TestActivity1" />
         <activity android:name=".canvas.CanvasActivity" />
 
         <activity android:name=".canvas.drawcolor.ColorActivity" />
@@ -61,7 +62,8 @@
         <activity android:name=".demo.stroke.StrokeActivity" />
         <activity android:name=".demo.bottom.BottomActivity" />
         <activity android:name=".customview.flowlayout.FlowLayoutActivity" />
-
+        <activity android:name=".demo.changeview.ChangeViewActivity" />
+        
     </application>
 
 </manifest>
