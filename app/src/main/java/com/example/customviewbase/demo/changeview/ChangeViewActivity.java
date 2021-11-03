@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class ChangeViewActivity extends AppCompatActivity{
     
-    private ChangeView cv;
+    private FocusView cv;
     
     private List<String> mList = new ArrayList<>();
     
