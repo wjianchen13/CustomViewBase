@@ -59,10 +59,12 @@
         <activity android:name=".customview.custommargin.CustomMarginActivity" />
         <activity android:name=".demo.DemoActivity" />
         <activity android:name=".demo.pan.PanActivity" />
+        <activity android:name=".demo.pp.PpActivity" />
         <activity android:name=".demo.stroke.StrokeActivity" />
         <activity android:name=".demo.bottom.BottomActivity" />
         <activity android:name=".customview.flowlayout.FlowLayoutActivity" />
         <activity android:name=".demo.changeview.ChangeViewActivity" />
+
         
     </application>
 

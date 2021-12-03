@@ -10,6 +10,7 @@ import com.example.customviewbase.R;
 import com.example.customviewbase.demo.bottom.BottomActivity;
 import com.example.customviewbase.demo.changeview.ChangeViewActivity;
 import com.example.customviewbase.demo.pan.PanActivity;
+import com.example.customviewbase.demo.pp.PpActivity;
 import com.example.customviewbase.demo.stroke.StrokeActivity;
 
 public class DemoActivity extends AppCompatActivity {
@@ -18,6 +19,10 @@ public class DemoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_demo);
+    }
+
+    public void onPoker(View v) {
+        startActivity(new Intent(this, PpActivity.class));
     }
 
     public void onPan(View v) {
