@@ -8,6 +8,7 @@ import android.graphics.Point;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -57,6 +58,21 @@ public class TestFrameLayout extends RelativeLayout {
     }
 
     /**
+     * 设置动画相关的区域，开始，左中右区域，顶部区域
+     */
+    public void initRect(Rect start, Rect left, Rect mid, Rect right, Rect top) {
+        if(mManager != null && start != null && left != null && mid != null && right != null && top != null) {
+            mManager.setStartRect(start.left, start.top, start.right, start.bottom);
+            mManager.setLeftRect(left.left, left.top, left.right, left.bottom);
+            mManager.setMidRect(mid.left, mid.top, mid.right, mid.bottom);
+            mManager.setRightRect(right.left, right.top, right.right, right.bottom);
+            mManager.setTopRect(top.left, top.top, top.right, top.bottom);
+        } else {
+            Toast.makeText(mContex, "数据异常", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    /**
      * 直接添加
      * @param type
      */
@@ -102,7 +118,7 @@ public class TestFrameLayout extends RelativeLayout {
         }
     }
 
-    public void thirdAnim(int type) {
+    private void thirdAnim(int type) {
         if(mManager != null) {
             mManager.thirdAnim(type);
         }

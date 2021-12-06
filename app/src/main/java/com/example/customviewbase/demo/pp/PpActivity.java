@@ -4,6 +4,7 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -19,11 +20,14 @@ import com.example.customviewbase.R;
 /**
  * 
  */
-public class PpActivity extends AppCompatActivity {
+public class PpActivity extends AppCompatActivity implements TestRelativeLayout.CallBack {
     
     private PpLayout plTest;
     private ImageView imgvTest;
     private TestFrameLayout flTest;
+    private TestRelativeLayout rlytTest;
+    
+    private boolean isLayout;
     
     private Bitmap bitmap;
     private Button btnStart;
@@ -49,6 +53,8 @@ public class PpActivity extends AppCompatActivity {
             getSupportActionBar().hide();
         }
         imgvTest = findViewById(R.id.imgv_test);
+        rlytTest = findViewById(R.id.rlyt_test);
+        rlytTest.setCallBack(this);
         flTest = findViewById(R.id.pl_test);
         btnStart = findViewById(R.id.btn_start);
         vLeft = findViewById(R.id.v_left);
@@ -58,16 +64,27 @@ public class PpActivity extends AppCompatActivity {
         vTop = findViewById(R.id.v_top);
     }
 
+    @Override
+    public void onFinishLayout() {
+        isLayout = true;
+        
+        Rect start = new Rect(btnAdd.getLeft(), btnAdd.getTop(), btnAdd.getRight(), btnAdd.getBottom());
+        Rect left = new Rect(vLeft.getLeft(), vLeft.getTop(), vLeft.getRight(), vLeft.getBottom());
+        Rect mid = new Rect(vMid.getLeft(), vMid.getTop(), vMid.getRight(), vMid.getBottom());
+        Rect right = new Rect(vRight.getLeft(), vRight.getTop(), vRight.getRight(), vRight.getBottom());
+        Rect top = new Rect(vTop.getLeft(), vTop.getTop(), vTop.getRight(), vTop.getBottom());
+        
+        if(flTest != null) {
+            flTest.initRect(start, left, mid, right, top);
+        }
+    }
+
     /**
      * 启动旋转
      * @param v
      */
     public void onInit(View v) {
-        flTest.setStartRect(btnAdd.getLeft(), btnAdd.getTop(), btnAdd.getRight(), btnAdd.getBottom());
-        flTest.setLeftRect(vLeft.getLeft(), vLeft.getTop(), vLeft.getRight(), vLeft.getBottom());
-        flTest.setMidRect(vMid.getLeft(), vMid.getTop(), vMid.getRight(), vMid.getBottom());
-        flTest.setRightRect(vRight.getLeft(), vRight.getTop(), vRight.getRight(), vRight.getBottom());
-        flTest.setTopRect(vTop.getLeft(), vTop.getTop(), vTop.getRight(), vTop.getBottom());
+
     }
     
     public void onAddLeft(View v) {

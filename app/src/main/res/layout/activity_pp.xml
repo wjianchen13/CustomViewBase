@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     
-    <RelativeLayout
+    <com.example.customviewbase.demo.pp.TestRelativeLayout
         android:id="@+id/rlyt_test"
         android:layout_width="match_parent"
         android:layout_height="360dp"
@@ -56,7 +56,7 @@
             android:textAllCaps="false"
             android:onClick="onStart" />
         
-    </RelativeLayout>
+    </com.example.customviewbase.demo.pp.TestRelativeLayout>
     
     <com.example.customviewbase.demo.pp.TestFrameLayout
         android:id="@+id/pl_test"
