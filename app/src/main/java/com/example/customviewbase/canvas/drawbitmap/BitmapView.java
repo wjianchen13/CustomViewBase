@@ -45,7 +45,7 @@ public class BitmapView extends View {
     // 3.在构造函数中初始化
     public BitmapView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        bitmap = BitmapFactory.decodeResource(getContext().getResources(), R.drawable.ic_count_down_2);
+        bitmap = BitmapFactory.decodeResource(getContext().getResources(), R.drawable.ic_coin);
         mBitmapWidth = bitmap.getWidth();
         initPaint();
     }
@@ -72,18 +72,24 @@ public class BitmapView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         canvas.save();
-        canvas.drawLine(0,mHeight / 2, mWidth,mHeight / 2, mPaint);
-        canvas.drawLine(mWidth / 2 ,0,mWidth / 2,mHeight, mPaint);   
-        canvas.translate(mWidth / 2 - mBitmapWidth / 2, mHeight / 2);
+//        canvas.drawLine(0,mHeight / 2, mWidth,mHeight / 2, mPaint);
+//        canvas.drawLine(mWidth / 2 ,0,mWidth / 2,mHeight, mPaint);   
+//        canvas.translate(mWidth / 2 - mBitmapWidth / 2, mHeight / 2);\
+//        matrix.postTranslate(100, 100);
+        matrix.postRotate(45, bitmap.getWidth()*0.5f,bitmap.getHeight()*0.5f);
         canvas.drawBitmap(bitmap, matrix, paint);
-
-        canvas.rotate(90,mBitmapWidth / 2,0);               // 旋转180度 <-- 旋转中心向右偏移200个单位
-        canvas.drawBitmap(bitmap, matrix, paint);
-        canvas.rotate(90,mBitmapWidth / 2,0);               // 旋转180度 <-- 旋转中心向右偏移200个单位
-        canvas.drawBitmap(bitmap, matrix, paint);
-        canvas.rotate(90,mBitmapWidth / 2,0);               // 旋转180度 <-- 旋转中心向右偏移200个单位
-        canvas.drawBitmap(bitmap, matrix, paint);
-        canvas.restore();
+//        matrix.reset();
+//        matrix.postTranslate(100, 100);
+//        canvas.drawBitmap(bitmap, matrix, paint);
+//        canvas.drawBit
+        
+//        canvas.rotate(90,mBitmapWidth / 2,0);               // 旋转180度 <-- 旋转中心向右偏移200个单位
+//        canvas.drawBitmap(bitmap, matrix, paint);
+//        canvas.rotate(90,mBitmapWidth / 2,0);               // 旋转180度 <-- 旋转中心向右偏移200个单位
+//        canvas.drawBitmap(bitmap, matrix, paint);
+//        canvas.rotate(90,mBitmapWidth / 2,0);               // 旋转180度 <-- 旋转中心向右偏移200个单位
+//        canvas.drawBitmap(bitmap, matrix, paint);
+//        canvas.restore();
         
 //        canvas.save();
 //        canvas.rotate(90);

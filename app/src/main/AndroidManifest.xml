@@ -64,7 +64,7 @@
         <activity android:name=".demo.bottom.BottomActivity" />
         <activity android:name=".customview.flowlayout.FlowLayoutActivity" />
         <activity android:name=".demo.changeview.ChangeViewActivity" />
-
+        <activity android:name=".demo.poker.PokerActivity" />
         
     </application>
 

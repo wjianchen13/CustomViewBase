@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding= "utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:openxu="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+    <com.example.customviewbase.demo.pp.TestRelativeLayout
+        android:id="@+id/rlyt_test"
+        android:layout_width="match_parent"
+        android:layout_height="360dp"
+        android:background="#ff0000ff" >
+
+        <View
+            android:id="@+id/v_top"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:background="#ff00ff00"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp" />
+        
+        <View
+            android:id="@+id/v_mid"
+            android:layout_width="100dp"
+            android:layout_height="180dp"
+            android:background="#ff00ff00"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp" />
+
+        <View
+            android:id="@+id/v_left"
+            android:layout_width="100dp"
+            android:layout_height="180dp"
+            android:background="#ff00ff00"
+            android:layout_toLeftOf="@id/v_mid"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="100dp" />
+
+        <View
+            android:id="@+id/v_right"
+            android:layout_width="100dp"
+            android:layout_height="180dp"
+            android:background="#ff00ff00"
+            android:layout_toRightOf="@id/v_mid"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="100dp" />
+
+        <Button
+            android:id="@+id/btn_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            android:text="添加"
+            android:textAllCaps="false"
+            android:onClick="onStart" />
+        
+    </com.example.customviewbase.demo.pp.TestRelativeLayout>
+    
+    <com.example.customviewbase.demo.poker.PokerLayout
+        android:id="@+id/pl_test"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignBottom="@id/rlyt_test">
+        
+    </com.example.customviewbase.demo.poker.PokerLayout>
+    
+    <LinearLayout
+        android:id="@+id/llyt_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btn_left"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="左"
+            android:textAllCaps="false"
+            android:onClick="onAddLeft" />
+    
+        <Button
+            android:id="@+id/btn_mid"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_alignTop="@id/btn_left"
+            android:layout_toRightOf="@id/btn_left"
+            android:text="中"
+            android:textAllCaps="false"
+            android:onClick="onAddMid" />
+        
+        <Button
+            android:id="@+id/btn_right"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_alignTop="@id/btn_mid"
+            android:layout_toRightOf="@id/btn_mid"
+            android:text="右"
+            android:textAllCaps="false"
+            android:onClick="onAddRight" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llyt_open"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/llyt_add"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btn_open_left"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="添加左item"
+            android:textAllCaps="false"
+            android:onClick="onOpenLeft" />
+
+        <Button
+            android:id="@+id/btn_open_mid"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_alignTop="@id/btn_left"
+            android:layout_toRightOf="@id/btn_left"
+            android:text="添加中item"
+            android:textAllCaps="false"
+            android:onClick="onOpenMid" />
+
+
+        <Button
+            android:id="@+id/btn_open_right"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_alignTop="@id/btn_mid"
+            android:layout_toRightOf="@id/btn_mid"
+            android:text="添加右item"
+            android:textAllCaps="false"
+            android:onClick="onOpenRight" />
+    </LinearLayout>
+    
+<!--    <ImageView
+        android:id="@+id/imgv_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/ic_coin" />-->
+    <LinearLayout
+        android:id="@+id/llyt_open1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/llyt_open"
+        android:orientation="horizontal" >
+        <Button
+            android:id="@+id/btn_test1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_above="@id/llyt_open"
+            android:text="清除显示"
+            android:textAllCaps="false"
+            android:onClick="onTest1" />
+    
+        <Button
+            android:id="@+id/btn_test2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_above="@id/btn_start"
+            android:text="刷新"
+            android:textAllCaps="false"
+            android:onClick="onTest2" />
+        <Button
+            android:id="@+id/btn_test3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_above="@id/btn_start"
+            android:text="test"
+            android:textAllCaps="false"
+            android:onClick="onTest3" />
+    </LinearLayout>
+</RelativeLayout>

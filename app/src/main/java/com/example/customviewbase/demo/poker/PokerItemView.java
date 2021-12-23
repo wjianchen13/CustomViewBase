@@ -1,10 +1,11 @@
-package com.example.customviewbase.demo.pp;
+package com.example.customviewbase.demo.poker;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.PointF;
 import android.util.AttributeSet;
 import android.view.View;
@@ -14,7 +15,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
 
-public class TestImageView extends AppCompatImageView {
+import com.example.customviewbase.demo.pp.TestFrameLayout;
+
+public class PokerItemView extends AppCompatImageView {
 
     /**
      * 第一点
@@ -27,15 +30,10 @@ public class TestImageView extends AppCompatImageView {
     private PointF mSecond;
 
     /**
-     * 第三点
+     * 旋转角度
      */
-    private PointF mThird;
-
-    /**
-     * 第四点
-     */
-    private PointF mEnd;
-
+    private int mRotation;
+    
     /**
      * 区域的偏移距离
      */
@@ -46,29 +44,43 @@ public class TestImageView extends AppCompatImageView {
      */
     private int mType;
     
-    public TestImageView(@NonNull Context context) {
+    private Bitmap mBitmap;
+    
+    private CallBack mCallBack;
+    
+    public PokerItemView(@NonNull Context context) {
         super(context);
         init();
     }
 
-    public TestImageView(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public PokerItemView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public TestImageView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public PokerItemView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
+
+    public void setCallBack(CallBack mCallBack) {
+        this.mCallBack = mCallBack;
+    }
+
+    public void setBitmap(Bitmap mBitmap) {
+        this.mBitmap = mBitmap;
+    }
     
+    public Bitmap getBitmap(){
+        return mBitmap;
+    }
+
     private void init() {
         mFirst = new PointF();
         mSecond = new PointF();
-        mThird = new PointF();
-        mEnd = new PointF();
     }
     
-    public void init(int offset, int fx, int fy, int sx, int xy, int tx, int ty, int ffx, int tty) {
+    public void init(int offset, int fx, int fy, int sx, int xy, int rotation) {
         this.mOffset = offset;
         if(mFirst != null) {
             mFirst.set(fx, fy);
@@ -76,12 +88,23 @@ public class TestImageView extends AppCompatImageView {
         if(mSecond != null) {
             mSecond.set(sx, xy);
         }
-        if(mThird != null) {
-            mThird.set(tx, ty);
-        }
-        if(mEnd != null) {
-            mEnd.set(ffx, tty);
-        }
+        this.mRotation = rotation;
+    }
+
+    public float getEndX() {
+        return mSecond.x;
+    }
+
+    public float getEndY() {
+        return mSecond.y;
+    }
+
+    public int getmRotation() {
+        return mRotation;
+    }
+
+    public void setRotation(int mRotation) {
+        this.mRotation = mRotation;
     }
 
     /**
@@ -97,6 +120,7 @@ public class TestImageView extends AppCompatImageView {
         setVisibility(View.GONE);
         setTranslationX(0);
         setTranslationY(0);
+        setRotation(0);
         mType = TestFrameLayout.TYPE_DEFAULT;
     }
     
@@ -105,57 +129,31 @@ public class TestImageView extends AppCompatImageView {
             if(type == TestFrameLayout.TYPE_LEFT) {
                 trans(mFirst.x, mFirst.y, mSecond.x, mSecond.y);
             } else if(type == TestFrameLayout.TYPE_MID) {
-                trans(mFirst.x, mFirst.y, mSecond.x + mOffset, mSecond.y);
+                trans(mFirst.x, mFirst.y, mSecond.x, mSecond.y);
             } else if(type == TestFrameLayout.TYPE_RIGHT) {
-                trans(mFirst.x, mFirst.y, mSecond.x + 2 * mOffset, mSecond.y);
+                trans(mFirst.x, mFirst.y, mSecond.x, mSecond.y);
             }
         } else {
             setTranslationX(mSecond.x);
             setTranslationY(mSecond.y);
-            setVisibility(VISIBLE);
-        }
-    }
 
-    public void secondAnim() {
-        trans(mSecond, mThird);
-    }
-
-    public void thirdAnim(int type) {
-        if(type == TestFrameLayout.TYPE_LEFT) {
-            trans(mThird.x, mThird.y, mSecond.x + mOffset, mSecond.y);
-        } else if(type == TestFrameLayout.TYPE_MID) {
-            trans(mThird.x, mThird.y, mSecond.x + mOffset, mSecond.y);
-        } else if(type == TestFrameLayout.TYPE_RIGHT) {
-            trans(mThird.x, mThird.y, mSecond.x + 2 * mOffset, mSecond.y);
-        }
-    }
-
-    public void fourAnim() {
-        trans(mThird, mEnd);
-    }
-
-    private void trans(float sx, float sy, float ex, float ey, Animator.AnimatorListener listener) {
-        if(sx != ex || sy != ey) {
-            ObjectAnimator translationX = ObjectAnimator.ofFloat(this, "translationX", sx, ex);
-            ObjectAnimator translationY = ObjectAnimator.ofFloat(this, "translationY", sy, ey);
-            final AnimatorSet animSet = new AnimatorSet();
-            animSet.play(translationX).with(translationY);
-            animSet.setInterpolator(new AccelerateDecelerateInterpolator());
-            animSet.setDuration(500);
-            if(listener != null)
-                animSet.addListener(listener);
-            animSet.start();
+            if(mCallBack != null) {
+                mCallBack.onAnimationEnd(PokerItemView.this);
+            }
+            setVisibility(GONE);
         }
     }
 
     private void trans(float sx, float sy, float ex, float ey) {
         if(sx != ex || sy != ey) {
-            ObjectAnimator translationX = ObjectAnimator.ofFloat(this, "translationX", sx, ex);
-            ObjectAnimator translationY = ObjectAnimator.ofFloat(this, "translationY", sy, ey);
+            ObjectAnimator translationX = ObjectAnimator.ofFloat(this, "translationX", sx, ex).setDuration(3680);
+            ObjectAnimator translationY = ObjectAnimator.ofFloat(this, "translationY", sy, ey).setDuration(3680);
+            ObjectAnimator rotation = ObjectAnimator.ofFloat(this, "rotation", 0f, mRotation);
+            rotation.setDuration(280);
+            rotation.setStartDelay(400);
             final AnimatorSet animSet = new AnimatorSet();
-            animSet.play(translationX).with(translationY);
+            animSet.play(translationX).with(translationY).with(rotation);
             animSet.setInterpolator(new AccelerateDecelerateInterpolator());
-            animSet.setDuration(500);
             animSet.addListener(new AnimatorListenerAdapter() {
                 @Override
                 public void onAnimationStart(Animator animation) {
@@ -167,6 +165,10 @@ public class TestImageView extends AppCompatImageView {
                 public void onAnimationEnd(Animator animation) {
                     super.onAnimationEnd(animation);
                     System.out.println("=====================================> onAnimationEnd: " + animSet.toString());
+                    if(mCallBack != null) {
+                        mCallBack.onAnimationEnd(PokerItemView.this);
+                    }
+                    setVisibility(View.GONE);
                 }
             });
             animSet.start();
@@ -191,14 +193,6 @@ public class TestImageView extends AppCompatImageView {
             animSet.start();
         }
     }
-    
-    public void addSecondAnim(AnimatorSet set) {
-        if(set != null && mSecond != null && mThird != null) {
-            ObjectAnimator translationX = ObjectAnimator.ofFloat(this, "translationX", getSecondX(), mThird.x);
-            ObjectAnimator translationY = ObjectAnimator.ofFloat(this, "translationY", mSecond.y, mThird.y);
-            set.play(translationX).with(translationY);
-        }
-    }
 
     /**
      * 获取区域的x坐标
@@ -218,5 +212,8 @@ public class TestImageView extends AppCompatImageView {
         return x;
     }
     
+    public interface CallBack {
+        void onAnimationEnd(PokerItemView v);
+    }
     
 }

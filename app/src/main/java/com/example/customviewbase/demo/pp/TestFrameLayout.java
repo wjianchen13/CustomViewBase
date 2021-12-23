@@ -1,6 +1,7 @@
 package com.example.customviewbase.demo.pp;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -16,7 +17,8 @@ import androidx.annotation.Nullable;
 import com.example.customviewbase.R;
 
 public class TestFrameLayout extends RelativeLayout {
-    
+
+    public static final int TYPE_DEFAULT = 0;
     public static final int TYPE_LEFT = 1;
     public static final int TYPE_MID = 2;
     public static final int TYPE_RIGHT = 3;
@@ -28,6 +30,7 @@ public class TestFrameLayout extends RelativeLayout {
     private Context mContex;
     
     private int mCoinSize;
+    
 
     /**
      * 绘制背景
@@ -54,7 +57,8 @@ public class TestFrameLayout extends RelativeLayout {
         mRect.set(90, 30, 990, 930);
         mManager = new TestManager();
         mCoinSize = mContex.getResources().getDimensionPixelOffset(R.dimen.pp_coin_size);
-        setCoinSize();
+        if(mManager != null)
+            mManager.init(mCoinSize);
     }
 
     /**
@@ -153,13 +157,7 @@ public class TestFrameLayout extends RelativeLayout {
                 params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
                 addView(img, params);
                 Point p = new Point();
-//                if (type == TYPE_LEFT) {
-                    mManager.createLeft(p);
-//                } else if (type == TYPE_MID) {
-//                    mManager.createMid(p);
-//                } else if (type == TYPE_RIGHT) {
-//                    mManager.createRight(p);
-//                }
+                mManager.createLeft(p);
                 Point tp = mManager.getTopPoint();
                 img.init(mManager.getOffset(), 0, 0, p.x, p.y, tp.x, tp.y, 0, 0);
             }
@@ -168,41 +166,7 @@ public class TestFrameLayout extends RelativeLayout {
         }
         return null;
     }
-    
-    public void setCoinSize() {
-        if(mManager != null)
-            mManager.init(mCoinSize);
-    }
 
-    public void setStartRect(int left, int top, int right, int bottom) {
-        if(mManager != null) {
-            mManager.setStartRect(left, top, right, bottom);
-        }
-    }
-    
-    public void setLeftRect(int left, int top, int right, int bottom) {
-        if(mManager != null) {
-            mManager.setLeftRect(left, top, right, bottom);
-        }
-    }
-
-    public void setMidRect(int left, int top, int right, int bottom) {
-        if(mManager != null) {
-            mManager.setMidRect(left, top, right, bottom);
-        }
-    }
-
-    public void setRightRect(int left, int top, int right, int bottom) {
-        if(mManager != null) {
-            mManager.setRightRect(left, top, right, bottom);
-        }
-    }
-
-    public void setTopRect(int left, int top, int right, int bottom) {
-        if(mManager != null) {
-            mManager.setTopRect(left, top, right, bottom);
-        }
-    }
     
     /**
      * 绘制背景画笔
