@@ -22,6 +22,11 @@
 
 #frame 模拟框架伪代码
 
+# 参考文档
+在自定义view中获取android layout_width等属性值
+https://blog.csdn.net/zhangbuzhangbu/article/details/38184487
+
+
 
 
 
