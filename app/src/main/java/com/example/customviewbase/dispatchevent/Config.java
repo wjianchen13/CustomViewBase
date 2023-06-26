@@ -7,7 +7,7 @@ public class Config {
 
     public static final boolean show_onTouch = true; // 显示onTouch方法内容
     public static final boolean detail = true; // 显示详细的action内容
-    public static final boolean show_main = false; // 显示主要内容
-    public static final boolean show_default = false; // 显示默认返回值
+    public static final boolean show_main = true; // 显示主要内容
+    public static final boolean show_default = true; // 显示默认返回值
 
 }

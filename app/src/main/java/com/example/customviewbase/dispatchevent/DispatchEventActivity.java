@@ -27,13 +27,13 @@ public class DispatchEventActivity extends Activity {
 
                 }
             });
-            mvV2.setOnTouchListener(new MyTouchListener());
-            mvV2.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                }
-            });
+//            mvV2.setOnTouchListener(new MyTouchListener());
+//            mvV2.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//
+//                }
+//            });
         }
     }
 
