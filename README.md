@@ -26,9 +26,8 @@
 在自定义view中获取android layout_width等属性值
 https://blog.csdn.net/zhangbuzhangbu/article/details/38184487
 
+Android事件分发机制详解：史上最全面、最易懂
+https://www.jianshu.com/p/38015afcdb58/
 
-
-
-
-
-
+Android自定义View（三、深入解析控件测量onMeasure）
+https://blog.csdn.net/ldld1717/article/details/80458910
