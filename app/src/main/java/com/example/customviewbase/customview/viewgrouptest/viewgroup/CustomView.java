@@ -1,6 +1,9 @@
 package com.example.customviewbase.customview.viewgrouptest.viewgroup;
 
 import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -12,12 +15,27 @@ import android.view.View;
  */
 
 public class CustomView extends View {
+
+
+
     public CustomView(Context context) {
         super(context);
     }
 
     public CustomView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        initPaint();
+    }
+
+    // 1.创建一个画笔
+    private Paint mPaint = new Paint();
+
+    // 2.初始化画笔
+    private void initPaint() {
+        mPaint.setColor(Color.BLACK);       //设置画笔颜色
+        mPaint.setStyle(Paint.Style.FILL);  //设置画笔模式为填充
+        mPaint.setStrokeWidth(20);         //设置画笔宽度为10px
+        mPaint.setTextSize(100);              // 设置字体大小
     }
 
     @Override
@@ -62,6 +80,17 @@ public class CustomView extends View {
                 break;
         }
         setMeasuredDimension(width, height);
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        // 文本(要绘制的内容)
+        String str = "ABCDEFG";
+
+        // 参数分别为 (文本 基线x 基线y 画笔)
+        canvas.drawText(str, 0, 80, mPaint);
+
     }
 
     private void printMode(int widthMeasureSpec, int heightMeasureSpec) {

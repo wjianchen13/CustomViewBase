@@ -47,12 +47,16 @@ public class RoundRectView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        // 第一种
-        RectF rectF = new RectF(100,100,800,400);
-        canvas.drawRoundRect(rectF,30,30,mPaint);
+//        // 第一种
+//        RectF rectF = new RectF(100,100,800,400);
+//        canvas.drawRoundRect(rectF,30,30,mPaint);
 
         // 第二种
 //        canvas.drawRoundRect(100,100,800,400,30,30,mPaint);
+
+        // 第一种
+        RectF rectF = new RectF(100,100,900,500);
+        canvas.drawRoundRect(rectF,200,200, mPaint);
 
     }
 }

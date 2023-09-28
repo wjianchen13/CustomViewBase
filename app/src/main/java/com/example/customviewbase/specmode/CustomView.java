@@ -8,7 +8,7 @@ import android.view.View;
 /**
  * Created by Administrator on 2018/9/29.
  * a.当控件的layout_width或layout_height指定为wrap_content时，为AT_MOST
- b.当控件的layout_width或layout_height指定为match_parent或具体数值时，为EXACTLY
+ * b.当控件的layout_width或layout_height指定为match_parent或具体数值时，为EXACTLY
  */
 
 public class CustomView extends View {

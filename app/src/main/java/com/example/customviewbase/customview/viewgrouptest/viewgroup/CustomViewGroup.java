@@ -127,7 +127,7 @@ public class CustomViewGroup extends ViewGroup {
 			ct = cParams.topMargin;
 			cr = cl + cWidth;
 			cb = cHeight + ct;
-			childView.layout(cl, ct, cr, cb);
+			childView.layout(cl, ct - 20, cr, cb - 20);
 		}
 	}
 
