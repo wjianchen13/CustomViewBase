@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.example.customviewbase.demo.last.CustomViewGroup1
+        android:id="@+id/llyt_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ff00ff00">
+
+        <TextView
+            android:id="@+id/tv_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffff00"
+            android:text="helloasfkdaskfdkjaskdfjkasdfkjaskdadfasdfasdfadsfasdfadsfasdasdfasdfasdfasdfasdfasdfasdfasdfasdffasdhello"/>
+        <!--             android:text="helloasfkdaskfdkjaskdfjkasdfkjaskdfkjaskdfjkasdkfjaksjdfkjashello" -->
+
+        <TextView
+            android:id="@+id/tv_test1"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:background="#ff00ff"
+            android:text="hello1"/>
+
+    </com.example.customviewbase.demo.last.CustomViewGroup1>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textAllCaps="false"
+        android:gravity="center"
+        android:text="列表测试"
+        android:onClick="onList"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textAllCaps="false"
+        android:gravity="center"
+        android:text="列表测试2"
+        android:onClick="onList2"
+        />
+
+</LinearLayout>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/rlyt_frame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/uv_head"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="#ff0000" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lines="1"
+            android:textColor="#cbcbcb"
+            android:textSize="14sp"
+            android:visibility="visible"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="3dp"
+            android:layout_toRightOf="@id/uv_head"
+            android:text="dsdsdsdasdsdas"
+            tools:visibility="visible" />
+
+        <com.example.customviewbase.demo.last.CustomViewGroup1
+            android:id="@+id/llyt_frame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ff00ff00"
+            android:layout_alignLeft="@id/tv_name"
+            android:layout_below="@id/tv_name">
+
+            <TextView
+                android:id="@+id/tv_test"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffff00"
+                android:text="helloasfkdaskfdkjaskdfjkasdfkjaskdadfasdfasdfadsfasdfadsfasdasdfasdfasdfasdfasdfasdfasdfasdfasdffasdhello"/>
+            <!--             android:text="helloasfkdaskfdkjaskdfjkasdfkjaskdfkjaskdfjkasdkfjaksjdfkjashello" -->
+
+            <TextView
+                android:id="@+id/tv_test1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#ff00ff"
+                android:text="hello1"/>
+
+        </com.example.customviewbase.demo.last.CustomViewGroup1>
+
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,6 +10,7 @@ import com.example.customviewbase.R;
 import com.example.customviewbase.demo.bottom.BottomActivity;
 import com.example.customviewbase.demo.center.CenterActivity;
 import com.example.customviewbase.demo.changeview.ChangeViewActivity;
+import com.example.customviewbase.demo.last.LastActivity;
 import com.example.customviewbase.demo.pan.PanActivity;
 import com.example.customviewbase.demo.poker.PokerActivity;
 import com.example.customviewbase.demo.pp.PpActivity;
@@ -60,6 +61,13 @@ public class DemoActivity extends AppCompatActivity {
      */
     public void onCenter(View v) {
         startActivity(new Intent(this, CenterActivity.class));
+    }
+
+    /**
+     * 垂直居中裁剪TextView显示
+     */
+    public void onLast(View v) {
+        startActivity(new Intent(this, LastActivity.class));
     }
 
 }

@@ -66,7 +66,9 @@
         <activity android:name=".demo.changeview.ChangeViewActivity" />
         <activity android:name=".demo.poker.PokerActivity" />
         <activity android:name=".demo.center.CenterActivity" />
-
+        <activity android:name=".demo.last.LastActivity" />
+        <activity android:name=".demo.last.LastListActivity" />
+        <activity android:name=".demo.last.LastListActivity2" />
         
     </application>
 
