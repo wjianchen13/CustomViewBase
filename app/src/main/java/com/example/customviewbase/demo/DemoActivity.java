@@ -11,6 +11,7 @@ import com.example.customviewbase.demo.bottom.BottomActivity;
 import com.example.customviewbase.demo.center.CenterActivity;
 import com.example.customviewbase.demo.changeview.ChangeViewActivity;
 import com.example.customviewbase.demo.last.LastActivity;
+import com.example.customviewbase.demo.move.MoveActivity;
 import com.example.customviewbase.demo.pan.PanActivity;
 import com.example.customviewbase.demo.poker.PokerActivity;
 import com.example.customviewbase.demo.pp.PpActivity;
@@ -69,5 +70,13 @@ public class DemoActivity extends AppCompatActivity {
     public void onLast(View v) {
         startActivity(new Intent(this, LastActivity.class));
     }
+
+    /**
+     * 移动View
+     */
+    public void onMove(View v) {
+        startActivity(new Intent(this, MoveActivity.class));
+    }
+
 
 }

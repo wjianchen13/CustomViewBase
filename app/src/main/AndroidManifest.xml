@@ -69,6 +69,7 @@
         <activity android:name=".demo.last.LastActivity" />
         <activity android:name=".demo.last.LastListActivity" />
         <activity android:name=".demo.last.LastListActivity2" />
+        <activity android:name=".demo.move.MoveActivity" />
         
     </application>
 
