@@ -70,6 +70,8 @@
         <activity android:name=".demo.last.LastListActivity" />
         <activity android:name=".demo.last.LastListActivity2" />
         <activity android:name=".demo.move.MoveActivity" />
+
+        <activity android:name=".customview.indicator.IndicatorActivity" />
         
     </application>
 
