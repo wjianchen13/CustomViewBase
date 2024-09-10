@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llyt_frame"
+    android:layout_width="wrap_content"
+    android:layout_height="28dp"
+    android:orientation="horizontal"
+    android:paddingStart="8dp"
+    android:paddingEnd="8dp"
+    android:background="@drawable/bg_marquee_test"
+    android:gravity="center_vertical">
+
+    <ImageView
+        android:id="@+id/imgv_test"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/ic_marquee_test"/>
+
+    <TextView
+        android:id="@+id/tv_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#ff00ff"
+        android:text="hello1"/>
+
+</LinearLayout>

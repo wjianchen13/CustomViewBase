@@ -72,6 +72,8 @@
         <activity android:name=".demo.move.MoveActivity" />
 
         <activity android:name=".customview.indicator.IndicatorActivity" />
+
+        <activity android:name=".customview.marquee.MarqueeActivity" />
         
     </application>
 

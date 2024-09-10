@@ -2,5 +2,9 @@
 <resources>
     
     <dimen name="pp_coin_size">24dp</dimen> <!-- 筹码的尺寸 -->
+    <dimen name="dino_distance_20dp">20dp</dimen>
+    <dimen name="dino_distance_24dp">12dp</dimen>
+    <dimen name="dino_distance_30dp">30dp</dimen>
+    <dimen name="dino_distance_28dp">28dp</dimen>
 
 </resources>
