@@ -44,6 +44,8 @@
         <activity android:name=".canvas.bezier.BezierActivity2" />
         <activity android:name=".canvas.bezier.BezierActivity3" />
         <activity android:name=".canvas.bezier.BezierMainActivity" />
+        <activity android:name=".canvas.path.PathActivity" />
+
         <activity android:name=".specmode.SpecModeActivity" />
         <activity android:name=".customview.viewgrouptest.base.BaseActivity" />
         <activity android:name=".customview.viewgrouptest.test.TestActivity" />

@@ -19,6 +19,7 @@ import com.example.customviewbase.canvas.drawpoint.PointActivity;
 import com.example.customviewbase.canvas.drawrect.RectActivity;
 import com.example.customviewbase.canvas.drawroundrect.RoundRectActivity;
 import com.example.customviewbase.canvas.paint.PaintActivity;
+import com.example.customviewbase.canvas.path.PathActivity;
 import com.example.customviewbase.canvas.rotate.RotateActivity;
 import com.example.customviewbase.canvas.scale.ScaleActivity;
 import com.example.customviewbase.canvas.translate.TranslateActivity;
@@ -197,6 +198,15 @@ public class CanvasActivity extends AppCompatActivity {
         Intent it = new Intent();
         it.setClass(CanvasActivity.this, BezierMainActivity.class);
         startActivity(it);
+    }
+
+    /**
+     * 绘制Path
+     * @param
+     * @return
+     */
+    public void onPath(View v) {
+        startActivity(new Intent(CanvasActivity.this, PathActivity.class));
     }
     
 }

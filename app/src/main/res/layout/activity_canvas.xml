@@ -143,5 +143,14 @@
             android:textAllCaps="false"
             android:onClick="onBezier" />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Path"
+            android:textAllCaps="false"
+            android:onClick="onPath" />
+
     </LinearLayout>
 </ScrollView>
