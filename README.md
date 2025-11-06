@@ -1,5 +1,10 @@
 # 自定义控件相关基础  
 
+# 编译环境
+android-studio-2024.3.2.15
+gradle插件：8.10.1
+gradle版本：gradle-8.11.1-bin
+
 # canvas  
 画布相关操作  
 
