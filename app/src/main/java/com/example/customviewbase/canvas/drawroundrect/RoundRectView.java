@@ -58,5 +58,6 @@ public class RoundRectView extends View {
         RectF rectF = new RectF(100,100,900,500);
         canvas.drawRoundRect(rectF,200,200, mPaint);
 
+//        canvas.
     }
 }

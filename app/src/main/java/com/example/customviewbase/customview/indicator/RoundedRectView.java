@@ -28,6 +28,8 @@ public class RoundedRectView extends View {
         paint = new Paint();
         paint.setColor(Color.BLUE);
         paint.setAntiAlias(true);
+        paint.setStrokeWidth(10);
+        paint.setStyle(Paint.Style.STROKE);
         cornerRadius = 50; // 设置圆角半径
     }
 
